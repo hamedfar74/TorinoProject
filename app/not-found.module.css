@@ -1,0 +1,27 @@
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.container h3 {
+    margin-top: -1.5rem;
+}
+.container a {
+    margin-top: 20px;
+    width: 232px;
+    height: 58px;
+    border-radius: 16px;
+    background-color: var(--secondary-color);
+    text-decoration: none;
+}
+.container a p {
+    display: flex;
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 20px;
+    margin: auto 0;
+    height: 58px;
+    align-items: center;
+    justify-content: center;
+}
