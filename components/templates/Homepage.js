@@ -1,14 +1,28 @@
-import AuthModal from "../modules/AuthModal"
-
+import TourSkeleton from "../elements/TourSkeleton";
+import AuthModal from "../modules/AuthModal";
+import CallUs from "../modules/CallUs";
+import Search from "../modules/Search";
+import TourList from "../modules/TourList";
+import Tours from "../modules/Tours";
+import styles from "./Homepage.module.css";
 const Homepage = () => {
   // throw new Error("خطایی رخ داده")
   return (
-    <div>
-    <h1>Homepage</h1>
-    
-    <AuthModal />
+    <div className={styles.container}>
+      <div className={styles.banner}>
+        <img src="/banner.svg" alt="banner" />
+      </div>
+      <div className={styles.subContainer}>
+        <h1>تورینو برگزار کننده بهترین تور های داخلی و خارجی</h1>
+        <Search />
+        <TourList />
+        <CallUs />
+        {/* <Tours /> */}
+        {/* <TourSkeleton /> */}
+        {/* <AuthModal /> */}
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Homepage
+export default Homepage;

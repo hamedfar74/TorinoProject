@@ -1,0 +1,15 @@
+.container {
+  max-width: 100%;
+}
+.banner img {
+  width: 100%;
+}
+.container h1 {
+  width: 100%;
+  font-size: 1rem;
+  text-align: center;
+  margin: 1.5rem auto;
+}
+.subContainer {
+  margin: 0.5rem 2rem;
+}
