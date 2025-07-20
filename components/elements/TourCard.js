@@ -8,12 +8,19 @@ import persian from "react-date-object/calendars/persian";
 import persian_fa from "react-date-object/locales/persian_fa";
 import { converteDateToFa, convertVehicle } from "@/utils/helper";
 import { sp } from "@/utils/numbers";
+import TourSkeleton from "./TourSkeleton";
+import { useEffect, useState } from "react";
 
 const TourCard = ({ tour }) => {
   const { title, price, image, startDate, endDate, fleetVehicle, options } =
     tour;
+  const [loading, setLoading] = useState(true);
 
-  // console.log(tour);
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 2000);
+    return () => clearTimeout(timer);
+  }, []);
+
   const vehicle = convertVehicle(fleetVehicle);
 
   const convertedDate = converteDateToFa(startDate);
@@ -28,7 +35,10 @@ const TourCard = ({ tour }) => {
     return dateObject.month.name;
   };
   const persianMonth = extractMonth(convertedDate);
-  // console.log(extractMonth(startDate));
+
+  if (loading) {
+    return <TourSkeleton />;
+  }
   return (
     <div className={styles.container}>
       <div className={styles.imageBox}>
@@ -36,7 +46,7 @@ const TourCard = ({ tour }) => {
       </div>
       <div className={styles.info}>
         <h3>{title}</h3>
-        <div>
+        <div className={styles.dec}>
           <p>{persianMonth} ماه .</p>
           <p>
             {`nروزه + ${vehicle} - ${options[0]} - ${options[1]}`}
