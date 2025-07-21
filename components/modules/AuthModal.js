@@ -5,19 +5,28 @@ import CheckOtp from "../elements/CheckOtp";
 import { Toaster } from "react-hot-toast";
 import { useAuth } from "../context/AuthProvider";
 
-const AuthModal = () => {
+import styles from "./AuthModal.module.css";
+
+const AuthModal = ({ isOpen, setIsopen }) => {
   const [step, setStep] = useState(1);
   const [otp, setOtp] = useState(0);
   const [mobile, setMobile] = useState("");
-  const {token } = useAuth()
- if (token.accessToken) return
+  const { token } = useAuth();
+  if (token.accessToken) return;
 
   return (
-    <div>
+    <div className={styles.container}>
       {step === 1 && (
-        <SendOtp setStep={setStep} mobile={mobile} setMobile={setMobile} />
+        <SendOtp
+          setStep={setStep}
+          mobile={mobile}
+          setMobile={setMobile}
+          setIsopen={setIsopen}
+        />
       )}
-      {step === 2 && <CheckOtp setStep={setStep} otp={otp} setOtp={setOtp} mobile={mobile} />}
+      {step === 2 && (
+        <CheckOtp setStep={setStep} otp={otp} setOtp={setOtp} mobile={mobile} setIsopen={setIsopen} />
+      )}
       <Toaster />
     </div>
   );

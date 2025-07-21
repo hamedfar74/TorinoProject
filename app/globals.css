@@ -1,8 +1,9 @@
 :root {
-  --primary-color:rgba(40, 167, 69, 1);
-  --secondary-color:rgba(216, 255, 225, 1);
-  --text-color:#282828;
-  --complementary-color:rgb(0, 158, 202);
+  --primary-color: rgba(40, 167, 69, 1);
+  --secondary-color: rgba(216, 255, 225, 1);
+  --error-color: rgba(212, 0, 0, 1);
+  --text-color: #282828;
+  --complementary-color: rgb(0, 158, 202);
 }
 * {
   margin: 0;
@@ -15,4 +16,3 @@ a,
 button {
   font-family: inherit;
 }
-

@@ -1,0 +1,82 @@
+.container {
+  width: 42%;
+  position: relative;
+  cursor: pointer;
+}
+.profile {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transition: all 0.3s ease-in-out;
+}
+.profile span {
+  color: var(--primary-color);
+}
+.downsvg {
+  transform: rotate(180deg);
+  transition: all 0.3s ease-in-out;
+}
+.dropDown {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  position: absolute;
+  top: 2rem;
+  left: 0;
+  border: 0.5px solid rgba(0, 0, 0, 0.12) ;
+   box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.25);
+  background-color: rgba(255, 255, 255, 1);
+  width: 10rem;
+  height: 7rem;
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+}
+.avatar {
+  display: flex;
+  background-color: rgba(244, 244, 244, 1);
+  width: 100%;
+  height: 2.7rem ;
+  margin-top: -0.5rem;
+  border-radius: 8px 8px 0 0;
+  align-items: center;
+  justify-content: space-around;
+}
+.avatar span {
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  background-color: rgba(217, 217, 217, 1);
+  border-radius: 50%;
+  padding: 6px;
+}
+.avatar p {
+    font-size: 14px;
+}
+.avatar img {
+  display: block;
+}
+.profileInfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  cursor: pointer;
+}
+.profileInfo p {
+  font-size: 12px;
+}
+.divider {
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+.logout {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  cursor: pointer;
+}
+.logout p {
+  font-size: 12px;
+  color: var(--error-color);
+}
+.profilesvg {
+}

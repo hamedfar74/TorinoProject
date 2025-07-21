@@ -4,6 +4,7 @@ import { getCookie, setCookie } from "@/utils/cookie";
 import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 import { createContext, useContext, useEffect, useState } from "react";
+import toast from "react-hot-toast";
 
 const AuthContext = createContext();
 
@@ -25,7 +26,7 @@ const AuthProvider = ({ children }) => {
     return api.post("auth/check-otp", userInfo);
   };
   const { mutate: otpMutate } = useMutation({ mutationFn: sendOtp });
-  const LoginHandler = (userData) => {
+  const LoginHandler = (userData, after) => {
     otpMutate(userData, {
       onSuccess: (data) => {
         console.log(data);
@@ -37,8 +38,10 @@ const AuthProvider = ({ children }) => {
         });
         setMobile(data?.data?.user.mobile);
         router.replace("/");
+        after();
       },
       onError: (err) => {
+        toast.error(err.message);
         console.log(err);
       },
     });
@@ -49,7 +52,7 @@ const AuthProvider = ({ children }) => {
     setUser("");
     setError("");
     setMobile("");
-    router.replace("/");
+    router.replace("/").then(() => window.location.reload());
   };
   const isLoggedIn = () => {
     if (!token.accessToken && !token.refreshToken) {

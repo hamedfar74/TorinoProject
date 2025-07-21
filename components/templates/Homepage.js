@@ -1,12 +1,12 @@
 import Slider from "../elements/Slider";
-import TourSkeleton from "../elements/TourSkeleton";
-import AuthModal from "../modules/AuthModal";
 import CallUs from "../modules/CallUs";
 import Search from "../modules/Search";
 import Tours from "../modules/Tours";
+
 import styles from "./Homepage.module.css";
+
 const Homepage = () => {
-  // throw new Error("خطایی رخ داده")
+  
   return (
     <div className={styles.container}>
       <div className={styles.banner}>
@@ -19,7 +19,6 @@ const Homepage = () => {
         <CallUs />
         <Slider />
 
-        {/* <AuthModal /> */}
       </div>
     </div>
   );

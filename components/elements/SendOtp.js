@@ -3,7 +3,10 @@
 import api from "@/configs/api";
 import toast from "react-hot-toast";
 
-const SendOtp = ({ setStep, mobile, setMobile }) => {
+import styles from "./SendOtp.module.css"
+import { e2p } from "@/utils/numbers";
+
+const SendOtp = ({ setStep, mobile, setMobile ,setIsopen}) => {
   
   const regEx = /^(09\d{9})$/gs;
   
@@ -18,16 +21,19 @@ const SendOtp = ({ setStep, mobile, setMobile }) => {
       .then((res) => toast.success(`کد تایید ارسال شد : ${res?.data?.code} `, { duration: 7000 }));
     setStep(2);
   };
+  const pNum = e2p("09121112233")
+  
   return (
-    <div>
-      <span>X</span>
-      <form onSubmit={submitHandler}>
+    <div className={styles.container}>
+      <span onClick={() => setIsopen(false)}>X</span>
+      <form onSubmit={submitHandler} className={styles.form}>
         <h2>ورود به تورینو</h2>
         <p>شماره موبایل خود را وارد کنید</p>
         <input
           name="mobile"
           type="number"
           value={mobile}
+          placeholder={pNum}
           onChange={changeHandler}
         />
         <button>ارسال کد تایید</button>
