@@ -29,6 +29,13 @@ const CheckOtp = ({ setStep, otp, setOtp, mobile, setIsopen }) => {
             numInputs={6}
             inputType="number"
             inputStyle={{ width: "2.7rem" }}
+            inputProps={{
+              onKeyDown: (e) => {
+                if (e.key === "ArrowUp" || e.key === "ArrowDown") {
+                  e.preventDefault();
+                }
+              },
+            }}
             renderInput={(props) => (
               <input {...props} className={styles.otpinput} />
             )}

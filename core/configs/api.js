@@ -28,13 +28,14 @@ api.interceptors.response.use(
   },
   async (error) => {
     const orginalRequest = error.config;
-    console.log(error);
-    if (error.response.status === 401 && !orginalRequest._retry) {
+    // console.log(orginalRequest);
+    if (error.response.status === 401 || error.response.status === 403 && !orginalRequest._retry) {
       orginalRequest._retry = true;
       const res = await getNewTokens();
-      if (res?.response?.status === 201) {
-        setCookie("accessToken", res?.response?.data.accessToken, 3000);
-        setCookie("refreshToken", res?.response?.data.refreshToken, 3600);
+      // console.log(res)
+      if (res?.response?.status === 200) {
+        setCookie("accessToken", res?.response?.data.accessToken, 30);
+        // setCookie("refreshToken", res?.response?.data.refreshToken, 365);
         return api(orginalRequest);
       } else {
         setCookie("accessToken", "", 0);

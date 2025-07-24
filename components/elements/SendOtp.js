@@ -1,28 +1,41 @@
 "use client";
 
-import api from "@/configs/api";
+import api from "@/core/configs/api";
 import toast from "react-hot-toast";
 
-import styles from "./SendOtp.module.css"
+import styles from "./SendOtp.module.css";
 import { e2p } from "@/utils/numbers";
+import { useSendOtp } from "@/core/services/mutations";
 
-const SendOtp = ({ setStep, mobile, setMobile ,setIsopen}) => {
-  
+const SendOtp = ({ setStep, mobile, setMobile, setIsopen }) => {
   const regEx = /^(09\d{9})$/gs;
-  
+
+  const { isPending, mutate } = useSendOtp();
+
   const changeHandler = (event) => {
     setMobile(event.target.value);
   };
+
   const submitHandler = async (e) => {
     e.preventDefault();
     if (!regEx.test(mobile)) return toast.error("شماره وارد شده صحیح نمیباشد");
-    const req = await api
-      .post("auth/send-otp", { mobile: mobile })
-      .then((res) => toast.success(`کد تایید ارسال شد : ${res?.data?.code} `, { duration: 7000 }));
-    setStep(2);
+    mutate(
+      { mobile },
+      {
+        onSuccess: (data) => {
+          toast.success(`کد تایید ارسال شد : ${data?.data?.code} `, {
+            duration: 7000,
+          });
+          setStep(2);
+        },
+        onError: (err) => {
+          console.log(err)
+        },
+      }
+    );
   };
-  const pNum = e2p("09121112233")
-  
+  const pNum = e2p("09121112233");
+
   return (
     <div className={styles.container}>
       <span onClick={() => setIsopen(false)}>X</span>
@@ -34,9 +47,16 @@ const SendOtp = ({ setStep, mobile, setMobile ,setIsopen}) => {
           type="number"
           value={mobile}
           placeholder={pNum}
+          onKeyDown={(e) => {
+            if (e.key === "ArrowUp" || e.key === "ArrowDown") {
+              e.preventDefault();
+            }
+          }}
           onChange={changeHandler}
         />
-        <button>ارسال کد تایید</button>
+        <button className={`${isPending ? styles.disable : null}`}>
+          ارسال کد تایید
+        </button>
       </form>
     </div>
   );

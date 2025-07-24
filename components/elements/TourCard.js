@@ -3,41 +3,37 @@
 import Image from "next/image";
 
 import styles from "./TourCard.module.css";
-import { Calendar, DateObject } from "react-multi-date-picker";
-import persian from "react-date-object/calendars/persian";
-import persian_fa from "react-date-object/locales/persian_fa";
-import { converteDateToFa, convertVehicle } from "@/utils/helper";
+
+import { converteDateToFa, convertVehicle, extractMonth } from "@/utils/helper";
 import { sp } from "@/utils/numbers";
 import TourSkeleton from "./TourSkeleton";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
 const TourCard = ({ tour }) => {
-  const { title, price, image, startDate, endDate, fleetVehicle, options } =
+  const {id, title, price, image, startDate, endDate, fleetVehicle, options } =
     tour;
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 2000);
+    const timer = setTimeout(() => setLoading(false), 1000);
     return () => clearTimeout(timer);
   }, []);
+
+  const router = useRouter()
 
   const vehicle = convertVehicle(fleetVehicle);
 
   const convertedDate = converteDateToFa(startDate);
 
-  const extractMonth = (dateString) => {
-    const dateObject = new DateObject({
-      date: dateString,
-      format: "YYYY/MM/DD",
-      calendar: persian,
-      locale: persian_fa,
-    });
-    return dateObject.month.name;
-  };
   const persianMonth = extractMonth(convertedDate);
 
   if (loading) {
     return <TourSkeleton />;
+  }
+
+  const clickHandler =() => {
+    router.push(`/tour/${id}`)
   }
   return (
     <div className={styles.container}>
@@ -55,7 +51,7 @@ const TourCard = ({ tour }) => {
         </div>
         <div className={styles.divider}></div>
         <div className={styles.footer}>
-          <button>رزرو</button>
+          <button onClick={clickHandler}>رزرو</button>
           <p>
             <span>{sp(price)} </span>
             تومان

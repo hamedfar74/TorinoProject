@@ -1,5 +1,6 @@
 "use client";
-import api from "@/configs/api";
+import api from "@/core/configs/api";
+import { useCheckOtp } from "@/core/services/mutations";
 import { getCookie, setCookie } from "@/utils/cookie";
 import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
@@ -22,12 +23,13 @@ const AuthProvider = ({ children }) => {
 
   const router = useRouter();
   // console.log({ user, token, mobile });
-  const sendOtp = (userInfo) => {
-    return api.post("auth/check-otp", userInfo);
-  };
-  const { mutate: otpMutate } = useMutation({ mutationFn: sendOtp });
+  // const sendOtp = (userInfo) => {
+  //   return api.post("auth/check-otp", userInfo);
+  // };
+  
+  const { isPending, mutate } = useCheckOtp();
   const LoginHandler = (userData, after) => {
-    otpMutate(userData, {
+    mutate(userData, {
       onSuccess: (data) => {
         console.log(data);
         setCookie("accessToken", data?.data.accessToken, 30);

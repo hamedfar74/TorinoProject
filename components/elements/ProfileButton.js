@@ -1,6 +1,6 @@
 "use client";
 
-import api from "@/configs/api";
+import api from "@/core/configs/api";
 import { useEffect, useState } from "react";
 
 import styles from "./ProfileButton.module.css";

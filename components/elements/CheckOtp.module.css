@@ -56,3 +56,12 @@
   padding: 1rem;
   margin-top: 1rem;
 }
+
+.otpinput input[type="number"]::-webkit-outer-spin-button,
+.otpinput input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.otpinput input[type="number"] {
+  -moz-appearance: textfield;
+}
