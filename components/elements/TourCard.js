@@ -4,8 +4,8 @@ import Image from "next/image";
 
 import styles from "./TourCard.module.css";
 
-import { converteDateToFa, convertVehicle, extractMonth } from "@/utils/helper";
-import { sp } from "@/utils/numbers";
+import { converteDateToFa, convertVehicle, extractMonth, tourDayAndNight } from "@/utils/helper";
+import { e2p, sp } from "@/utils/numbers";
 import TourSkeleton from "./TourSkeleton";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
@@ -28,6 +28,8 @@ const TourCard = ({ tour }) => {
 
   const persianMonth = extractMonth(convertedDate);
 
+  const [day,night] = tourDayAndNight(startDate,endDate)
+  
   if (loading) {
     return <TourSkeleton />;
   }
@@ -45,7 +47,7 @@ const TourCard = ({ tour }) => {
         <div className={styles.dec}>
           <p>{persianMonth} ماه .</p>
           <p>
-            {`nروزه + ${vehicle} - ${options[0]} - ${options[1]}`}
+            {`${e2p(day)}روزه + ${vehicle} - ${options[0]} - ${options[1]}`}
             {options[2] && ` - ${options[2]} `}
           </p>
         </div>

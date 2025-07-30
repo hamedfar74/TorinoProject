@@ -1,0 +1,11 @@
+.container {
+ display: flex;
+ justify-content: space-between;
+ padding: 0.5rem 1rem;
+}
+.container p {
+    font-size: 0.8rem;
+}
+.container p:last-child {
+    font-size: 0.6rem;
+}

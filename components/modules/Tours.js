@@ -8,7 +8,7 @@ export default async function Tours() {
   const data = await res.json();
 
   return (
-    <div>
+    <div style={{marginTop:"1.5rem"}}>
       <h3>همه تور ها</h3>
       <TourClientHandler>
         {data.map((tour) => (

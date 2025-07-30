@@ -45,3 +45,39 @@
   align-items: center;
   z-index: 500;
 }
+.menu {
+  position: relative;
+  /* backdrop-filter: blur(5px); */
+}
+.menu a {
+ 
+}
+.openHam {
+  margin-top: 5rem;
+ 
+  right: 0;
+  top: 0;
+}
+.openHam ul {
+  top: 0;
+  right: 0;
+  /* margin-top: 1.5rem; */
+  height: 100vh;
+  width: 45%;
+  background-color: #fff;
+   position: fixed;
+  color: var(--text-color);
+  z-index: 50;
+  border-radius: 10px 0 0 10px;
+  box-shadow: 10px 0 5px 10px  #202020
+}
+.openHam li {
+  margin-top: 1.5rem;
+  margin-right:  2rem;
+  list-style: none;
+}
+
+.openHam li a {
+  text-decoration: none;
+  color: var(--text-color);
+}

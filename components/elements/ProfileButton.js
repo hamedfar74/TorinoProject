@@ -7,33 +7,27 @@ import styles from "./ProfileButton.module.css";
 import { e2p } from "@/utils/numbers";
 import { useAuth } from "../context/AuthProvider";
 import { useRouter } from "next/navigation";
+import { useGetProfileData } from "@/core/services/queries";
 
 const ProfileButton = () => {
   const [user, setUser] = useState("");
   const [dropdown, setDropdown] = useState(false);
 
   const { LogoutHandler } = useAuth();
+  const { data, isPending, isError } = useGetProfileData();
+  
 
   const router = useRouter();
   useEffect(() => {
-    const getUser = async () => {
-      try {
-        const data = await api.get("user/profile");
-        setUser(data?.data);
-      } catch (error) {
-        console.log(error);
-        // throw new Error(error.message);
-      }
-    };
-    getUser();
-  }, []);
+    if (!isPending && data?.data) setUser(data?.data);
+  }, [isPending, data]);
 
   const converted = e2p(+user?.mobile);
 
-  const profileHandler =  () => {
+  const profileHandler = () => {
     setDropdown(false);
 
-    router.push("/profile")
+    router.push("/profile");
   };
   const logoutHandler = () => {
     setUser("");
@@ -47,6 +41,7 @@ const ProfileButton = () => {
     >
       <div className={styles.profile}>
         <img src="/icons/profile.svg" alt="profile" />
+        {isPending && <span>Loading...</span>}
         {converted && <span>{`۰${converted}`}</span>}
         <img
           src="/icons/green-arrow-down.svg"
