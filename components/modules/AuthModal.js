@@ -2,7 +2,7 @@
 import { useState } from "react";
 import SendOtp from "../elements/SendOtp";
 import CheckOtp from "../elements/CheckOtp";
-import { Toaster } from "react-hot-toast";
+
 import { useAuth } from "../context/AuthProvider";
 
 import styles from "./AuthModal.module.css";
@@ -27,7 +27,7 @@ const AuthModal = ({ isOpen, setIsopen }) => {
       {step === 2 && (
         <CheckOtp setStep={setStep} otp={otp} setOtp={setOtp} mobile={mobile} setIsopen={setIsopen} />
       )}
-      <Toaster />
+      
     </div>
   );
 };

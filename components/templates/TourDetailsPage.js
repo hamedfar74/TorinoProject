@@ -1,15 +1,14 @@
 import Image from "next/image";
-import styles from "./TourDetailsPage.module.css";
 import { e2p, sp } from "@/utils/numbers";
 import {
   convertCity,
-  converteDateToFa,
   convertVehicle,
   DateWithPMonth,
-  extractMonth,
   tourDayAndNight,
 } from "@/utils/helper";
 import DetailBt from "../elements/DetailBt";
+
+import styles from "./TourDetailsPage.module.css";
 
 export default async function TourDetailsPage({ params }) {
   const { tourId } = params;
@@ -30,9 +29,11 @@ export default async function TourDetailsPage({ params }) {
     options,
     image,
   } = data;
-  console.log(data);
-  
-  const [ days, nights ] =  tourDayAndNight(startDate, endDate);
+  // console.log(data);
+  // console.log(options)
+  // console.log(options.includes("راهنمای تور"));
+
+  const [days, nights] = tourDayAndNight(startDate, endDate);
   const begin = DateWithPMonth(startDate);
   const ends = DateWithPMonth(endDate);
 
@@ -44,11 +45,11 @@ export default async function TourDetailsPage({ params }) {
         <p>{`${e2p(days)}${" "}روز و ${e2p(nights)} شب`}</p>
       </div>
       <div className={styles.attributes}>
-        {/* {options && ( */}
-        <p>
-          <img src="/icons/user-tick.svg" alt="user" /> تورلیدر از مبدا{" "}
-        </p>
-        {/* )} */}
+        {options.includes("راهنمای تور") && (
+          <p>
+            <img src="/icons/user-tick.svg" alt="user" /> تورلیدر از مبدا{" "}
+          </p>
+        )}
         <p>
           <img src="/icons/map.svg" alt="user" /> برنامه سفر{" "}
         </p>
@@ -109,7 +110,7 @@ export default async function TourDetailsPage({ params }) {
         </div>
       </div>
       <div className={styles.bottom}>
-        <DetailBt data={data}>رزرو و خرید</DetailBt>
+        <DetailBt info={data}>رزرو و خرید</DetailBt>
         <p>
           <span>{sp(price)}</span> تومان
         </p>

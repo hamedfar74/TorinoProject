@@ -71,7 +71,16 @@ const tourDayAndNight = (startDate, endDate) => {
   const Days = Math.ceil(timeDiff / day);
   const Nights = Days - 1;
   // console.log(Days, Nights);
-  return [Days,Nights];
+  return [Days, Nights];
+};
+
+const convertPdateToGregorian = (dateObj) => {
+  if (!dateObj || typeof dateObj.toDate !== "function") return;
+  const gregorianDate = dateObj?.toDate();
+  const year = gregorianDate?.getFullYear();
+  const month = String(gregorianDate.getMonth() + 1).padStart(2, "0");
+  const day = String(gregorianDate.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
 };
 export {
   converteDateToFa,
@@ -80,4 +89,5 @@ export {
   extractMonth,
   DateWithPMonth,
   tourDayAndNight,
+  convertPdateToGregorian,
 };

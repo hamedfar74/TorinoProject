@@ -10,4 +10,14 @@ const useCheckOtp = () => {
   return useMutation({ mutationFn });
 };
 
-export { useSendOtp , useCheckOtp};
+const useSendTourToBasket = () => {
+  const mutationFn = (id) => api.put(`basket/${id}`);
+  return useMutation({ mutationFn });
+};
+
+const useSendOrder = () => {
+  const mutationFn = (data) => api.post("order", data);
+  return useMutation({ mutationFn });
+};
+
+export { useSendOtp, useCheckOtp , useSendTourToBasket , useSendOrder};

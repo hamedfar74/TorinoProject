@@ -4,6 +4,7 @@ import AuthProvider from "@/components/context/AuthProvider";
 import ReactQueryProvider from "@/components/context/ReactQueryProvider";
 import Header from "@/components/modules/Header";
 import Footer from "@/components/modules/Footer";
+import { Toaster } from "react-hot-toast";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,7 +22,8 @@ export default function RootLayout({ children }) {
             <Header />
             {children}
             <Footer />
-            </AuthProvider>
+            <Toaster />
+          </AuthProvider>
         </ReactQueryProvider>
       </body>
     </html>
