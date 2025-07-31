@@ -1,7 +1,9 @@
+import Featurs from "../elements/Featurs";
 import Slider from "../elements/Slider";
 import CallUs from "../modules/CallUs";
 import Search from "../modules/Search";
 import Tours from "../modules/Tours";
+import WhyUs from "../modules/WhyUs";
 
 import styles from "./Homepage.module.css";
 
@@ -17,8 +19,8 @@ const Homepage = () => {
         <Search />
         <Tours />
         <CallUs />
-        <Slider />
-
+        <WhyUs />
+        <Featurs />
       </div>
     </div>
   );

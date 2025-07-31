@@ -1,0 +1,30 @@
+.container {
+margin-bottom: 3rem;
+}
+.head {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+.question{
+    position: relative;
+    z-index: 1;
+     display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.question span {
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    padding: 0.5rem;
+    color: #fff;
+    font-size: 1.5rem;
+}
+.head h2 {
+    margin-right: 0.5rem;
+}
+.head h2 span {
+    color: var(--primary-color);
+}
+   

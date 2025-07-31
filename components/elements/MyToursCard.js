@@ -44,13 +44,13 @@ const MyToursCard = ({ tour }) => {
 
   const beginIn = DateWithPMonth(startDate);
   const endsIn = DateWithPMonth(endDate);
-
+  
   return (
     <div className={styles.container} >
       <div className={styles.head}>
         <p><img src="icons/sun-fog.svg" alt="icon" />{title}</p>
         <p>سفر با {convertVehicle(fleetVehicle)}</p>
-        <p>{status}</p>
+        <p className={`${status === "به اتمام رسیده" ? styles.trueStatus : styles.falseStatus}` }>{status}</p>
       </div>
       <div className={styles.destination}>
         <span>

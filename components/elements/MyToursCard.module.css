@@ -1,55 +1,69 @@
 .container {
-    width: 85%;
-    border: 1px solid #00000033;
-    margin: 1rem 2rem;
-    border-radius: 0.8rem;
-    /* padding: 1rem  */
+  width: 85%;
+  border: 1px solid #00000033;
+  margin: 1rem 2rem;
+  border-radius: 0.8rem;
+  /* padding: 1rem  */
 }
 .head {
-    display:flex ;
-    justify-content: space-between;
-    padding: 1rem 1rem 0;
-    font-size: 1rem;
-    font-weight: 600;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 1rem 0;
+  font-size: 0.9rem;
+  font-weight: 400;
+  align-items: center;
 }
 .head p img {
-    display: block;
-    width: 18px;
+  display: block;
+  width: 18px;
 }
 .head p {
-    display: flex;
+  display: flex;
 }
 .head p:last-child {
-    font-size: 0.5rem;
-    top: 0;
-    margin-top: -1rem;
-    font-weight: 400;
+  font-size: 0.5rem;
+  top: 0;
+  margin-top: -1rem;
+  font-weight: 400;
 }
 .destination {
-    padding: 1rem;
+  padding: 1rem;
 }
 .destination span {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 0.6rem;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.6rem;
 }
 .bottom {
-    display: flex;
-    font-size: 0.6rem;
-    padding: 0.8rem 1rem;
-    justify-content: space-between;
-    align-items: center;
-    border-top: 1px solid #00000033;
+  display: flex;
+  font-size: 0.6rem;
+  padding: 0.8rem 1rem;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #00000033;
 }
 .bottom div {
-    height: 2rem;
-    border: 1px solid #00000033;
+  height: 2rem;
+  border: 1px solid #00000033;
 }
 .bottom p {
-    color: var(--text-color);
+  color: var(--text-color);
 }
 .bottom span {
-    font-size: 0.8rem;
-    font-weight: 500;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+.trueStatus {
+  background-color: var(--secondary-color);
+  padding: 0.2rem;
+  border-radius: 10px;
+  color: var(--primary-color);
+}
+.falseStatus {
+  background-color: #d1b9004d;
+  width: fit-content;
+  text-wrap: nowrap;
+  color: #d1b900;
+  padding: 0.2rem;
+  border-radius: 10px;
 }

@@ -42,7 +42,7 @@ const BasketPage = ({ data }) => {
   const changeHandler = (event) => {
     setInfo({ ...info, [event.target.name]: event.target.value });
   };
-  const {  mutate, isPending } = useSendOrder();
+  const { mutate, isPending } = useSendOrder();
   const submitHandler = (event) => {
     event.preventDefault();
     const birthDateForSend = convertPdateToGregorian(info?.birthDate);
@@ -52,9 +52,7 @@ const BasketPage = ({ data }) => {
       gender: info.gender,
       birthDate: birthDateForSend,
     };
-    if (payload)
-    
-    console.log("payload", payload);
+    if (payload) console.log("payload", payload);
     mutate(payload, {
       onSuccess: (data) => {
         console.log(data);
@@ -71,16 +69,19 @@ const BasketPage = ({ data }) => {
     <div className={styles.container}>
       <form onSubmit={submitHandler}>
         <div className={styles.userInfo}>
+          <h3><img src="icons/profile-black.svg" />مشخصات مسافر</h3>
           <input
             type="text"
             name="fullName"
             value={info.fullName}
+            placeholder="نام و نام خانوادگی"
             onChange={changeHandler}
           />
           <input
             type="text"
             name="nationalCode"
             value={info.nationalCode}
+            placeholder="کد ملی"
             onChange={changeHandler}
           />
           <select name="gender" onChange={changeHandler}>
@@ -92,6 +93,7 @@ const BasketPage = ({ data }) => {
           </select>
           <DatePicker
             value={info.birthDate}
+            placeholder="تاریخ تولد"
             onChange={(dateObj) => {
               setInfo((prev) => ({
                 ...prev,
@@ -106,11 +108,11 @@ const BasketPage = ({ data }) => {
           {/* </form> */}
         </div>
         <div className={styles.summary}>
-          <div>
+          <div className={styles.head}>
             <h3>{tour.title}</h3>
             <p>{`${e2p(days)}${" "}روز و ${e2p(nights)} شب`}</p>
           </div>
-          <div>
+          <div className={styles.finalPrice}>
             <p>قیمت نهایی</p>
             <p>
               <span>{sp(tour.price)}</span> تومان

@@ -1,0 +1,83 @@
+.container {
+  margin: 1rem 2rem;
+}
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  border: 1px solid #00000033;
+  border-radius: 10px;
+  padding: 0.8rem 1rem;
+}
+.userInfo h3 {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.userInfo input,
+.userInfo select {
+  border: 1px solid #808080;
+  border-radius: 5px;
+  height: 3.1rem;
+  width: 100%;
+}
+.userInfo input:focus,
+.userInfo select:focus {
+  border: 2px solid var(--primary-color);
+  box-shadow: 0 0 0 2px #07ec39;
+  outline: none;
+}
+.userInfo input::placeholder {
+  padding-right: 1rem;
+}
+.userInfo select {
+  padding-right: 0.7rem;
+}
+/* .userInfo select {
+    border:1px solid #808080;
+    border-radius: 5px;
+    
+} */
+.summary {
+  width: 100%;
+  border: 1px solid #00000033;
+  border-radius: 10px;
+  margin-top: 1.5rem;
+}
+.summary div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.head {
+    border-bottom: 1px dashed #00000080;
+    padding: 1rem;
+}
+.head p {
+    font-size: 0.9rem;
+    color: var(--text-color);
+}
+.finalPrice {
+    padding: 1rem;
+}
+.finalPrice p {
+    color: var(--text-color);
+
+}
+.finalPrice P:last-child {
+    font-size: 0.7rem;
+}
+.finalPrice span {
+    color: var(--complementary-color);
+    font-size: 1.5rem ;
+}
+.summary button {
+    width: 91%;
+    margin: 1rem;
+    font-size: 1.5rem;
+    padding: 0.5rem 0 ;
+    color: #fff;
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 10px;
+}

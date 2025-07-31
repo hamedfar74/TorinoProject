@@ -1,4 +1,4 @@
-@import url("/fonts/css/_fonts.css");
+/* @import url("/fonts/css/_fonts.css"); */
 
 :root {
   --primary-color: rgba(40, 167, 69, 1);
@@ -15,8 +15,8 @@
 }
 
 body {
-  font-family: "YekanBakh-Medium" ,"YekanBakh", sans-serif;
-  
+  font-family: 'YekanBakh', "roboto" , sans-serif;
+  font-weight: 300;
 }
 input,
 a,
