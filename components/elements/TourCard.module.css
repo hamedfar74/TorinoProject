@@ -11,9 +11,11 @@
   aspect-ratio: 16 / 9;
 }
 .tourImage {
+  position: absolute;
   width: 700;
   height: 600;
   object-fit: "cover";
+  z-index: 1;
 }
 .info {
   padding: 0.5rem;
