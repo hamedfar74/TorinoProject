@@ -23,9 +23,6 @@ const AuthProvider = ({ children }) => {
 
   const router = useRouter();
   // console.log({ user, token, mobile });
-  // const sendOtp = (userInfo) => {
-  //   return api.post("auth/check-otp", userInfo);
-  // };
   
   const { isPending, mutate } = useCheckOtp();
   const LoginHandler = (userData, after) => {

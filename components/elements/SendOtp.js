@@ -29,6 +29,7 @@ const SendOtp = ({ setStep, mobile, setMobile, setIsopen }) => {
           setStep(2);
         },
         onError: (err) => {
+          toast.error("مشکلی پیش آمده دوباره تلاش کنید")
           console.log(err)
         },
       }

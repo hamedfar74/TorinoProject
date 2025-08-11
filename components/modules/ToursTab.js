@@ -5,7 +5,7 @@ import MyToursCard from "../elements/MyToursCard";
 
 const ToursTab = () => {
   const { data, isPending } = useGetProfileTours();
-  console.log(data?.data);
+  // console.log(data?.data);
 
   return (
     <div>

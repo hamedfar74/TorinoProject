@@ -29,8 +29,6 @@ const Search = () => {
       const [startDate, endDate] = value;
       const isoStart = startDate.toDate().toISOString();
       const isoEnd = endDate.toDate().toISOString();
-      // console.log("ISO Start:", isoStart);
-      // console.log("ISO End:", isoEnd);
       setQuery((query) => ({ ...query, startDate: isoStart, endDate: isoEnd }));
     } else {
       console.error("Invalid date range:", value);

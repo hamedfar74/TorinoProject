@@ -21,6 +21,7 @@ const DetailBt = ({ info, children }) => {
         await toast.success(`${data?.data?.message}`)
       },
       onError: (err) => {
+        toast.error("مشکلی پیش آمده بعدا دوباره تلاش کنید")
         console.log(err);
       },
     });

@@ -5,7 +5,7 @@ import TransactionCard from "../elements/TransactionCard";
 
 const TransactionsTab = () => {
   const { data } = useGetProfileTransactions();
-  console.log(data);
+  // console.log(data);
 
   return (
     <div className={styles.container}>

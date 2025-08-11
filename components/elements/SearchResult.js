@@ -8,7 +8,6 @@ const SearchResult = ({ data: { data }, setIsOpen, isOpen }) => {
 
   useEffect(() => {
     const outSideHandler = (e) => {
-      console.log(e);
       if (tourRef.current && !tourRef.current.contains(e.target)) {
         setIsOpen(false);
       }

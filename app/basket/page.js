@@ -25,7 +25,7 @@ export default async function Basket() {
 
   const tour = await tourData.json();
   const user = await profileData.json();
-  console.log({ tour, user });
+  // console.log({ tour, user });
   if(!tour || tour.length === 0 || tour.message === "خطا در دریافت سبد خرید." ) redirect("/?redirected=emptyBasket")
 
   return <BasketPage data={{tour,user}} />;

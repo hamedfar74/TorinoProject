@@ -30,8 +30,8 @@ const BasketPage = ({ data }) => {
   });
   const router = useRouter();
 
-  console.log(tour)
-  console.log(info, user);
+  // console.log(tour)
+  // console.log(info, user);
   
 
   const today = new Date();
@@ -54,7 +54,7 @@ const BasketPage = ({ data }) => {
       gender: info.gender,
       birthDate: birthDateForSend,
     };
-    if (payload) console.log("payload", payload);
+    // if (payload) console.log("payload", payload);
     mutate(payload, {
       onSuccess: (data) => {
         console.log(data);
@@ -62,6 +62,7 @@ const BasketPage = ({ data }) => {
         router.replace("/");
       },
       onError: (err) => {
+        toast.error("مشکلی پیش آمده دوباره تلاش کنید")
         console.log(err);
       },
     });

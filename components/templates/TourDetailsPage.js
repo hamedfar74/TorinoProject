@@ -12,6 +12,7 @@ import styles from "./TourDetailsPage.module.css";
 
 export default async function TourDetailsPage({ params }) {
   const { tourId } = params;
+  
   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}tour/${tourId}`, {
     cache: "no-cache",
   });
@@ -29,9 +30,6 @@ export default async function TourDetailsPage({ params }) {
     options,
     image,
   } = data;
-  // console.log(data);
-  // console.log(options)
-  // console.log(options.includes("راهنمای تور"));
 
   const [days, nights] = tourDayAndNight(startDate, endDate);
   const begin = DateWithPMonth(startDate);
