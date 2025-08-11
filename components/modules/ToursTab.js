@@ -14,7 +14,7 @@ const ToursTab = () => {
       ) : (
         <>
           {data?.data?.map((tour, index) => (
-            <MyToursCard key={tour?.id} tour={tour} />
+            <MyToursCard key={index} tour={tour} />
           ))}
         </>
       )}

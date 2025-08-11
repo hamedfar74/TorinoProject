@@ -9,7 +9,11 @@
   font-size: 1rem;
   text-align: center;
   margin: 1.5rem auto;
+  color: #595959;
 }
 .subContainer {
   margin: 0.5rem 2rem;
+}
+.subContainer h1 span {
+  color: var(--primary-color);
 }

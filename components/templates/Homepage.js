@@ -1,5 +1,4 @@
 import Featurs from "../elements/Featurs";
-import Slider from "../elements/Slider";
 import CallUs from "../modules/CallUs";
 import Search from "../modules/Search";
 import Tours from "../modules/Tours";
@@ -15,7 +14,8 @@ const Homepage = () => {
         <img src="/banner.svg" alt="banner" />
       </div>
       <div className={styles.subContainer}>
-        <h1>تورینو برگزار کننده بهترین تور های داخلی و خارجی</h1>
+        <h1><span>تورینو </span>برگزار کننده بهترین تور های داخلی و خارجی</h1>
+        {/* <h1>تورینو برگزار کننده بهترین تور های داخلی و خارجی</h1> */}
         <Search />
         <Tours />
         <CallUs />

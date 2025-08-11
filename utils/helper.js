@@ -40,6 +40,8 @@ const convertCity = (city) => {
       return "مازندران";
     case "Italy":
       return "ایتالیا";
+    case "offRoad Center":
+     return "مرکز آفرود"; 
     default:
       return "شهر یافت نشد!";
   }

@@ -1,7 +1,7 @@
 /* @import url("/fonts/css/_fonts.css"); */
 
 :root {
-  --primary-color: rgba(40, 167, 69, 1);
+  --primary-color: rgb(40, 167, 69);
   --secondary-color: rgba(216, 255, 225, 1);
   --error-color: rgba(212, 0, 0, 1);
   --text-color: #282828;

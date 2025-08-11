@@ -5,21 +5,75 @@
   /* justify-content: space-between; */
 }
 .box {
-    height: 30vh;
+    /* height: 30vh; */
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-around;
+  gap: .5rem;
 }
-.box input:last-child {
+/* .box input:last-child {
     width: 100vw;
+} */
+ .box select {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+  height: 47px;
+  width: 45%;
+}
+.box select:focus {
+  border: 1px solid var(--primary-color);
+  box-shadow: 0 1px 0 1px #07ec39;
+  outline: none;
+  background-image: none;
 }
 .box input {
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 12px;
   height: 47px;
+  width: 45%;
 }
-.container button {
+.box input:focus {
+  border: 1px solid var(--primary-color);
+  box-shadow: 0 1px 0 1px #07ec39;
+  outline: none;
+  background-image: none;
+}
+.origin {
+  background-image: url("/icons/location.svg");
+  background-repeat: no-repeat;
+  background-position: 5.2rem center ;
+  text-align: center;
+  /* direction: rtl; */
+}
+.destination {
+  background-image: url("/icons/global-search.svg");
+  background-repeat: no-repeat;
+   background-position: 5.5rem center ;
+   text-align: center;
+}
+.calendar {
+  width: 100%;
+  /* flex-grow: 1;
+  padding: 0.8rem 0; */
+  margin: 0.5rem 0.5rem;
+  
+}
+.calendar input {
+  flex-grow: 1;
+  /* padding: 0.8rem 0; */
+  width: 80vw;
+}
+.calendar input {
+  /* background-image: url("/icons/calendar.svg");
+  background-repeat: no-repeat;
+   background-position: 6.5rem center ; */
+   text-align: center;
+}
+/* .calendar input:focus ,.calendar input::after  {
+  background-image: none;
+} */
+.serachBt {
   border: none;
   border-radius: 16px;
   height: 47px;
@@ -27,4 +81,9 @@
   color: #fff;
   font-size: 20px;
   
+}
+.result {
+  height: 18rem;
+  position: relative;
+  z-index: 20;
 }

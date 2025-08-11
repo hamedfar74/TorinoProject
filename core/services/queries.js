@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import api from "../configs/api";
+import QueryString from "qs";
 
 export const useGetProfileData = () => {
   const queryFn = () => api.get("user/profile");
@@ -15,4 +16,11 @@ export const useGetProfileTransactions = () => {
   const queryFn = () => api.get("user/transactions");
   const queryKey = ["profile-transactions"];
   return useQuery({ queryKey, queryFn });
+};
+
+export const useGetSearchTours = (query) => {
+  const url = "tour?" + QueryString.stringify(query);
+  const queryFn = () => api.get(url);
+  const queryKey = ["search-tours"];
+  return useQuery({ queryFn, queryKey, enabled: false });
 };
