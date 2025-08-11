@@ -1,6 +1,5 @@
 "use client";
 
-import api from "@/core/configs/api";
 import { useEffect, useState } from "react";
 
 import styles from "./ProfileButton.module.css";
@@ -8,6 +7,7 @@ import { e2p } from "@/utils/numbers";
 import { useAuth } from "../context/AuthProvider";
 import { useRouter } from "next/navigation";
 import { useGetProfileData } from "@/core/services/queries";
+import Image from "next/image";
 
 const ProfileButton = () => {
   const [user, setUser] = useState("");
@@ -40,10 +40,10 @@ const ProfileButton = () => {
       onClick={() => setDropdown((dropdown) => !dropdown)}
     >
       <div className={styles.profile}>
-        <img src="/icons/profile.svg" alt="profile" />
+        <Image width={16} height={16} src="/icons/profile.svg" alt="profile" />
         {isPending && <span>Loading...</span>}
         {converted && <span>{`۰${converted}`}</span>}
-        <img
+        <Image width={16} height={16}
           src="/icons/green-arrow-down.svg"
           alt="arrow"
           className={dropdown ? styles.downsvg : null}
@@ -53,17 +53,17 @@ const ProfileButton = () => {
         <div className={styles.dropDown}>
           <div className={styles.avatar}>
             <span>
-              <img src="/icons/gray-profile.svg" />
+              <Image width={16} height={16} src="/icons/gray-profile.svg" alt="profile-icon" />
             </span>
             {converted && <p>{`۰${converted}`}</p>}
           </div>
           <div className={styles.profileInfo} onClick={profileHandler}>
-            <img src="/icons/empty-profile.svg" />
+            <Image width={16} height={16} src="/icons/empty-profile.svg" alt="profile-icon" />
             <p>اطلاعات حساب کاربری</p>
           </div>
           <div className={styles.divider}></div>
           <div className={styles.logout} onClick={logoutHandler}>
-            <img src="/icons/logout.svg" />
+            <Image width={16} height={16} src="/icons/logout.svg" alt="logout-icon" />
             <p>خروج از حساب کاربری</p>
           </div>
         </div>

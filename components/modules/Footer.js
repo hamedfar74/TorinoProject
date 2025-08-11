@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import styles from "./Footer.module.css";
 const Footer = () => {
   return (
@@ -22,7 +23,7 @@ const Footer = () => {
       <div className={styles.submenu2}>
         <div className={styles.logo}>
           <span>
-            <img src="/icons/Torino1.svg" alt="Torino-Logo" />
+            <Image width={100} height={30} src="/icons/Torino1.svg" alt="Torino-Logo" />
           </span>
           <div>
             <p>تلفن پشتیبانی:</p>
@@ -30,11 +31,11 @@ const Footer = () => {
           </div>
         </div>
         <div className={styles.refLinks}>
-          <img src="/icons/aira-682b7c43.svg" alt="aria.ir" />
-          <img src="/icons/samandehi-6e2b448a.svg" alt="samandehi.ir" />
-          <img src="/icons/ecunion-35c3c933.svg" alt="ecunion.ir" />
-          <img src="/icons/passenger-rights-48368f81.svg" alt="cao.ir" />
-          <img src="/icons/state-airline-f45c55b2.svg" alt="caa.gov.ir" />
+          <Image width={50} height={50} src="/icons/aira-682b7c43.svg" alt="aria.ir" />
+          <Image width={50} height={50} src="/icons/samandehi-6e2b448a.svg" alt="samandehi.ir" />
+          <Image width={50} height={50} src="/icons/ecunion-35c3c933.svg" alt="ecunion.ir" />
+          <Image width={50} height={50} src="/icons/passenger-rights-48368f81.svg" alt="cao.ir" />
+          <Image width={50} height={50} src="/icons/state-airline-f45c55b2.svg" alt="caa.gov.ir" />
         </div>
       </div>
       <div className={styles.divider}></div>

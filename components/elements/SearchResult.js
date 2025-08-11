@@ -29,7 +29,7 @@ const SearchResult = ({ data: { data }, setIsOpen, isOpen }) => {
       <div className={styles.cards}>
         {!data.length && <p className={styles.fail}>محصولی یافت نشد!</p>}
         {data.map((item) => (
-          <TourCard tour={item} />
+          <TourCard key={item.id} tour={item}  />
         ))}
       </div>
     </div>

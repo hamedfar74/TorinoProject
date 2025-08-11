@@ -2,6 +2,7 @@ import OTPInput from "react-otp-input";
 import { useAuth } from "../context/AuthProvider";
 
 import styles from "./CheckOtp.module.css";
+import Image from "next/image";
 
 const CheckOtp = ({ setStep, otp, setOtp, mobile, setIsopen }) => {
   const { LoginHandler } = useAuth();
@@ -14,7 +15,7 @@ const CheckOtp = ({ setStep, otp, setOtp, mobile, setIsopen }) => {
     <div className={styles.container}>
       <div className={styles.backButton}>
         <button onClick={() => setStep(1)}>
-          <img src="/icons/arrow-left.svg" />
+          <Image width={20} height={20} src="/icons/arrow-left.svg" />
         </button>
       </div>
       <h2>کد تایید را وارد کنید</h2>

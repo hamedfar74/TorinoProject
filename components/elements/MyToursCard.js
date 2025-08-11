@@ -8,7 +8,8 @@ import {
 } from "@/utils/helper";
 import { sp } from "@/utils/numbers";
 import { useEffect, useState } from "react";
-import styles from "./MyToursCard.module.css"
+import styles from "./MyToursCard.module.css";
+import Image from "next/image";
 
 const MyToursCard = ({ tour }) => {
   const {
@@ -22,7 +23,7 @@ const MyToursCard = ({ tour }) => {
     price,
   } = tour;
   const [status, setStatus] = useState("");
-  console.log(status);
+  
   const diff = () => {
     if (!endDate) {
       setStatus("داده تاریخ در دسترس نیست");
@@ -39,18 +40,42 @@ const MyToursCard = ({ tour }) => {
     }
   };
   useEffect(() => {
+    const diff = () => {
+      if (!endDate) {
+        setStatus("داده تاریخ در دسترس نیست");
+        return;
+      }
+      const endTour = new Date(endDate);
+      const today = new Date();
+      if (today > endTour) {
+        setStatus("به اتمام رسیده");
+        return;
+      } else {
+        setStatus("در حال برگزاری");
+        return;
+      }
+    };
     diff();
   }, [endDate]);
 
   const beginIn = DateWithPMonth(startDate);
   const endsIn = DateWithPMonth(endDate);
-  
+
   return (
-    <div className={styles.container} >
+    <div className={styles.container}>
       <div className={styles.head}>
-        <p><img src="icons/sun-fog.svg" alt="icon" />{title}</p>
+        <p>
+          <Image width={18} height={18} src="icons/sun-fog.svg" alt="icon" />
+          {title}
+        </p>
         <p>سفر با {convertVehicle(fleetVehicle)}</p>
-        <p className={`${status === "به اتمام رسیده" ? styles.trueStatus : styles.falseStatus}` }>{status}</p>
+        <p
+          className={`${
+            status === "به اتمام رسیده" ? styles.trueStatus : styles.falseStatus
+          }`}
+        >
+          {status}
+        </p>
       </div>
       <div className={styles.destination}>
         <span>
@@ -64,7 +89,7 @@ const MyToursCard = ({ tour }) => {
           <p>{endsIn.day + endsIn.month + endsIn.year}</p>
         </span>
       </div>
-      <div className={styles.bottom} >
+      <div className={styles.bottom}>
         <p>شماره تور</p>
         <span>{id.split("-")[4]}</span>
         <div></div>

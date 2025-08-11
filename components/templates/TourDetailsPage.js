@@ -47,14 +47,27 @@ export default async function TourDetailsPage({ params }) {
       <div className={styles.attributes}>
         {options.includes("راهنمای تور") && (
           <p>
-            <img src="/icons/user-tick.svg" alt="user" /> تورلیدر از مبدا{" "}
+            <Image
+              width={14}
+              height={14}
+              src="/icons/user-tick.svg"
+              alt="user"
+            />{" "}
+            تورلیدر از مبدا{" "}
           </p>
         )}
         <p>
-          <img src="/icons/map.svg" alt="user" /> برنامه سفر{" "}
+          <Image width={14} height={14} src="/icons/map.svg" alt="user" />{" "}
+          برنامه سفر{" "}
         </p>
         <p>
-          <img src="/icons/medal-star.svg" alt="user" /> تضمین کیفیت{" "}
+          <Image
+            width={14}
+            height={14}
+            src="/icons/medal-star.svg"
+            alt="user"
+          />{" "}
+          تضمین کیفیت{" "}
         </p>
       </div>
       <div className={styles.tourInfo}>
@@ -62,27 +75,51 @@ export default async function TourDetailsPage({ params }) {
           {insurance && (
             <span className={styles.infoItems}>
               <span>
-                بیمه <img src="/icons/security.svg" alt="insurance" />
+                بیمه{" "}
+                <Image
+                  width={16}
+                  height={19}
+                  src="/icons/security.svg"
+                  alt="insurance"
+                />
               </span>
               <p>بیمه {e2p(50)} هزار دیناری</p>
             </span>
           )}
           <span className={styles.infoItems}>
             <span>
-              ظرفیت <img src="/icons/profile-2user.svg" alt="capacity" />{" "}
+              ظرفیت{" "}
+              <Image
+                width={16}
+                height={19}
+                src="/icons/profile-2user.svg"
+                alt="capacity"
+              />{" "}
             </span>
             <p>حداکثر {e2p(availableSeats)} نفر</p>
           </span>
           <span className={styles.infoItems}>
             <span>
-              حمل و نقل <img src="/icons/bus.svg" alt="transport" />
+              حمل و نقل{" "}
+              <Image
+                width={16}
+                height={19}
+                src="/icons/bus.svg"
+                alt="transport"
+              />
             </span>
             <p>{convertVehicle(fleetVehicle)}</p>
           </span>
           {insurance && (
             <span className={styles.infoItems}>
               <span>
-                تاریخ برگشت <img src="/icons/calendar-2.svg" alt="insurance" />
+                تاریخ برگشت{" "}
+                <Image
+                  width={16}
+                  height={19}
+                  src="/icons/calendar-2.svg"
+                  alt="insurance"
+                />
               </span>
               <span>
                 <p>{ends.year}</p>
@@ -93,7 +130,13 @@ export default async function TourDetailsPage({ params }) {
           )}
           <span className={styles.infoItems}>
             <span>
-              تاریخ رفت <img src="/icons/calendar-2.svg" alt="capacity" />{" "}
+              تاریخ رفت{" "}
+              <Image
+                width={16}
+                height={19}
+                src="/icons/calendar-2.svg"
+                alt="capacity"
+              />{" "}
             </span>
             <span className={styles.startDate}>
               <p>{begin.year}</p>
@@ -103,7 +146,13 @@ export default async function TourDetailsPage({ params }) {
           </span>
           <span className={styles.infoItems}>
             <span>
-              مبدا <img src="/icons/routing-2.svg" alt="transport" />
+              مبدا{" "}
+              <Image
+                width={16}
+                height={19}
+                src="/icons/routing-2.svg"
+                alt="transport"
+              />
             </span>
             <p>{convertCity(origin.name)}</p>
           </span>

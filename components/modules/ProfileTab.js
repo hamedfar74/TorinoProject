@@ -1,6 +1,7 @@
 import { useGetProfileData } from "@/core/services/queries";
 import styles from "./ProfileTab.module.css";
 import { e2p } from "@/utils/numbers";
+import Image from "next/image";
 
 const ProfileTab = () => {
   const { data, isPending } = useGetProfileData();
@@ -16,13 +17,13 @@ const ProfileTab = () => {
         <div>
           <p> ایمیل</p>
           <span>{data?.data?.email ? data?.data?.email : <p>-</p>}</span>
-          <button><img src="/icons/edit-2.svg" alt="edit-icon" /> افزودن</button>
+          <button><Image width={16} height={16} src="/icons/edit-2.svg" alt="edit-icon" /> افزودن</button>
         </div>
       </div>
       <div className={styles.personalInfo}>
         <div>
           <h3>اطلاعات شخصی</h3>
-          <button><img src="/icons/edit-2.svg" alt="edit-icon" /> ویرایش اطلاعات</button>
+          <button><Image width={16} height={16} src="/icons/edit-2.svg" alt="edit-icon" /> ویرایش اطلاعات</button>
         </div>
         <div>
           <p>نام و نام خانوداگی</p>
@@ -54,7 +55,7 @@ const ProfileTab = () => {
       <div className={styles.bankInfo}>
         <div>
           <h3>اطلاعات حساب بانکی</h3>
-          <button><img src="/icons/edit-2.svg" alt="edit-icon" /> ویرایش اطلاعات</button>
+          <button><Image width={16} height={16} src="/icons/edit-2.svg" alt="edit-icon" /> ویرایش اطلاعات</button>
         </div>
         <div>
           <p>شماره کارت</p>

@@ -13,6 +13,7 @@ import DateObject from "react-date-object";
 import { useSendOrder } from "@/core/services/mutations";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 const BasketPage = ({ data }) => {
   const { tour, user } = data;
@@ -29,8 +30,9 @@ const BasketPage = ({ data }) => {
   });
   const router = useRouter();
 
+  console.log(tour)
   console.log(info, user);
-  // console.log(convertPdateToGregorian(info?.birthDate));
+  
 
   const today = new Date();
   const maxDate = new Date(
@@ -69,7 +71,7 @@ const BasketPage = ({ data }) => {
     <div className={styles.container}>
       <form onSubmit={submitHandler}>
         <div className={styles.userInfo}>
-          <h3><img src="icons/profile-black.svg" />مشخصات مسافر</h3>
+          <h3><Image width={24} height={24} src="icons/profile-black.svg" alt="profile-icon" />مشخصات مسافر</h3>
           <input
             type="text"
             name="fullName"

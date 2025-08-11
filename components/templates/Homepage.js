@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Featurs from "../elements/Featurs";
 import CallUs from "../modules/CallUs";
 import Search from "../modules/Search";
@@ -5,13 +6,14 @@ import Tours from "../modules/Tours";
 import WhyUs from "../modules/WhyUs";
 
 import styles from "./Homepage.module.css";
+import ToastHandler from "../elements/ToastHandler";
 
 const Homepage = () => {
   
   return (
     <div className={styles.container}>
       <div className={styles.banner}>
-        <img src="/banner.svg" alt="banner" />
+        <Image width={400} height={98} src="/banner.svg" alt="banner" />
       </div>
       <div className={styles.subContainer}>
         <h1><span>تورینو </span>برگزار کننده بهترین تور های داخلی و خارجی</h1>
@@ -22,6 +24,7 @@ const Homepage = () => {
         <WhyUs />
         <Featurs />
       </div>
+      <ToastHandler />
     </div>
   );
 };

@@ -1,6 +1,7 @@
 "use client";
 import { e2p } from "@/utils/numbers";
 import styles from "./CallUs.module.css";
+import Image from "next/image";
 const CallUs = () => {
   return (
     <div className={styles.container}>
@@ -13,14 +14,14 @@ const CallUs = () => {
             <p>به هرکجا که میخواهید!</p>
           </div>
           <div className={styles.photo}>
-            <img src="/professional-cartoon-man-talking-phone-icon.svg" />
+            <Image width={200} height={162} src="/professional-cartoon-man-talking-phone-icon.svg" alt="cartoon-guy" />
           </div>
-          {/* <img src="/professional-cartoon-man-talking-phone-icon.svg" /> */}
+          
         </div>
         <div className={styles.bottomBox}>
           <span>
             {e2p("021-1840")}
-            <img src="/icons/call.svg" alt="call" />
+            <Image width={25} height={25} src="/icons/call.svg" alt="call" />
           </span>
           <button> اطلاعات بیشتر</button>
         </div>

@@ -1,13 +1,14 @@
 "use client";
+import Image from "next/image";
 import styles from "./error.module.css";
-const error = () => {
+export default function Error() {
   return (
     <div className={styles.container}>
-      <img src="/icons/Error-Lamp-Robot.svg" />
-      <h3>اتصال با سرور برقرار نیست!</h3>
-      <p>لطفا بعدا دوباره امتحان کنید.</p>
+      <Image width={300} height={300} src="/icons/Error-Lamp-Robot.svg" alt="robot" />
+      <div>
+        <h3>اتصال با سرور برقرار نیست!</h3>
+        <p>لطفا بعدا دوباره امتحان کنید.</p>
+      </div>
     </div>
   );
-};
-
-export default error;
+}

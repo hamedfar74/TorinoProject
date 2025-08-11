@@ -4,7 +4,8 @@ import { EffectCoverflow, Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import "./Slider.css"
+import "./Slider.css";
+import Image from "next/image";
 
 const Slider = () => {
   return (
@@ -37,7 +38,9 @@ const Slider = () => {
       >
         {["/pic1.svg", "/pic2.svg", "/pic3.svg", "/pic4.svg"].map((src, i) => (
           <SwiperSlide key={i}>
-            <img
+            <Image
+              width={200}
+              height={200}
               src={src}
               style={{
                 width: "100%",
@@ -55,8 +58,6 @@ const Slider = () => {
 };
 
 export default Slider;
-
-
 
 // /* استایل دکمه‌های ناوبری */
 // .swiper-button-prev,

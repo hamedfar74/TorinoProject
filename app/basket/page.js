@@ -6,7 +6,7 @@ export default async function Basket() {
   const cookieStore = cookies();
   const token = cookieStore.get("accessToken")?.value;
   //   console.log(token);
-  if (!token) redirect("/?redirected=unauthorized");
+  if (!token ) redirect("/?redirected=unauthorized");
 
   const [tourData, profileData] = await Promise.all([
     fetch(`${process.env.NEXT_PUBLIC_BASE_URL}basket`, {
@@ -25,8 +25,8 @@ export default async function Basket() {
 
   const tour = await tourData.json();
   const user = await profileData.json();
-  // console.log({ tour, user });
-  if(!tour || tour.length === 0 ) redirect("/?redirected=emptyBasket")
+  console.log({ tour, user });
+  if(!tour || tour.length === 0 || tour.message === "خطا در دریافت سبد خرید." ) redirect("/?redirected=emptyBasket")
 
   return <BasketPage data={{tour,user}} />;
 }

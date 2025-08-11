@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import styles from "./TourClientHandler.module.css";
+import Image from "next/image";
 const TourClientHandler = ({ children }) => {
   const [isMobile, setIsMobile] = useState(false);
   const [showAll, setShowAll] = useState(false);
@@ -29,7 +30,7 @@ const TourClientHandler = ({ children }) => {
         <div className={styles.container} onClick={() => setShowAll(true)}>
           <p>
             مشاهده بیشتر
-            <img src="/icons/little-arrow-down.svg" alt="arrow down" />
+            <Image width={12} height={12} src="/icons/little-arrow-down.svg" alt="arrow down" />
           </p>
         </div>
       </>
