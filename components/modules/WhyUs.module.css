@@ -1,30 +1,97 @@
 .container {
-margin-bottom: 3rem;
+  margin-bottom: 3rem;
+  height: max-content;
 }
 .head {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+ .title {
     display: flex;
     align-items: center;
-    margin-bottom: 1rem;
-}
-.question{
-    position: relative;
-    z-index: 1;
-     display: flex;
-    justify-content: center;
-    align-items: center;
+    
+    /* justify-content: right; */
+  }
+.question {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .question span {
-    position: absolute;
-    z-index: 10;
-    top: 0;
-    padding: 0.5rem;
-    color: #fff;
-    font-size: 1.5rem;
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  padding: 0.5rem;
+  color: #fff;
+  font-size: 1.5rem;
 }
 .head h2 {
-    margin-right: 0.5rem;
+  margin-right: 0.5rem;
 }
 .head h2 span {
-    color: var(--primary-color);
+  color: var(--primary-color);
 }
-   
+.webExtraInfo {
+  display: none;
+}
+
+@media (min-width: 800px) {
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    height: 42.5rem;
+    align-items: center;
+  }
+  .slider {
+    min-width: 350px;
+  }
+  .head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .question {
+    margin-right: 1.5rem;
+  }
+  .question span {
+    /* max-height: fit-content; */
+    margin-top: -0.8rem;
+    font-size: 2.2rem;
+    font-weight: 900;
+  }
+  .title {
+    display: flex;
+    align-items: center;
+    
+    /* justify-content: right; */
+  }
+  .title h2,
+  .title span {
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 156%;
+  }
+  .webExtraInfo {
+    display: inline-block;
+    padding: 1.5rem;
+  }
+  .webExtraInfo h3 {
+    font-weight: 500;
+    font-size: 1.7rem;
+    color: var(--text-color);
+    line-height: 165%;
+  }
+  .webExtraInfo p {
+    /* font-family: A Iranian Sans; */
+    margin-top: 1.5rem;
+    font-weight: 400;
+    /* font-style: Regular; */
+    font-size: 1.4rem;
+
+    line-height: 220%;
+    text-align: justify;
+  }
+}

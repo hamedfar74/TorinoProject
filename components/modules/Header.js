@@ -35,6 +35,23 @@ const Header = () => {
 
   return (
     <div className={styles.container}>
+      <div className={styles.webDesignMenu}>
+        <Image width={146} height={44} src="/icons/Torino1.svg" alt="Torino-Logo" />
+      <ul>
+            <li>
+              <Link href="/">صفحه اصلی</Link>
+            </li>
+            <li>
+              <Link href="/">خدمات گردشگری</Link>
+            </li>
+            <li>
+              <Link href="/">درباره ما</Link>
+            </li>
+            <li>
+              <Link href="/">تماس با ما</Link>
+            </li>
+          </ul>
+      </div>
       {ham ? (
         <div
           className={`${styles.menu} ${ham ? styles.openHam : null}`}
@@ -63,9 +80,15 @@ const Header = () => {
       {checkLogin ? (
         <ProfileButton />
       ) : (
+        <>
         <button className={styles.firstBt} onClick={() => setIsopen(true)}>
           <Image width={24} height={24} src="/icons/login.svg" alt="Login icon" />
         </button>
+        <button className={styles.webDesignBt} onClick={() => setIsopen(true)}>
+          <Image width={24} height={24} src="/icons/profile.svg" alt="Login icon" />
+          <span>ورود | ثبت نام</span>
+        </button>
+        </>
       )}
       {isOpen && (
         <div className={styles.modalOverlay} onClick={handleOutSideClick}>

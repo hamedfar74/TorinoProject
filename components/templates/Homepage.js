@@ -13,7 +13,7 @@ const Homepage = () => {
   return (
     <div className={styles.container}>
       <div className={styles.banner}>
-        <Image width={400} height={98} src="/banner.svg" alt="banner" />
+        <Image fill src="/banner.svg" alt="banner" />
       </div>
       <div className={styles.subContainer}>
         <h1><span>تورینو </span>برگزار کننده بهترین تور های داخلی و خارجی</h1>
@@ -21,7 +21,7 @@ const Homepage = () => {
         <Search />
         <Tours />
         <CallUs />
-        <WhyUs />
+        {/* <WhyUs /> */}
         <Featurs />
       </div>
       <ToastHandler />

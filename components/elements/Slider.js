@@ -1,58 +1,60 @@
 "use client";
-import { Swiper, SwiperSlide } from "swiper/react";
+
+import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 import { EffectCoverflow, Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "./Slider.css";
 import Image from "next/image";
+import { useRef } from "react";
 
 const Slider = () => {
+  const swiper = useSwiper();
+  const swiperRef = useRef(null)
+  
   return (
-    <div
-      dir="rtl"
-      style={{ padding: "10px", textAlign: "center", overflow: "visible" }}
-    >
+    <div className="container-slide">
       <Swiper
         modules={[Navigation, Pagination, EffectCoverflow]}
-        spaceBetween={10}
+        spaceBetween={20}
         slidesPerView={1.5}
         effect="coverflow"
-        centeredSlides={true}
+        
+        // centeredSlides={false}
         initialSlide={0}
         coverflowEffect={{
-          rotate: 0, // چرخش صفر
-          stretch: 110, // فاصله بین اسلایدها
-          depth: 500, // عمق
-          modifier: 1,
-          slideShadows: true, // سایه‌ها غیرفعال
+          rotate: 0,
+          stretch: 70,
+          depth: 250,
+          modifier: 2.2,
+          slideShadows: true,
         }}
-        navigation
+        // navigation
         pagination={{ clickable: true, type: "fraction" }}
-        style={{
-          width: "280px",
-          height: "280px",
-          position: "relative",
-        }}
         className="custom-swiper"
+        onSwiper={(swiper) => (swiperRef.current = swiper)}
       >
         {["/pic1.svg", "/pic2.svg", "/pic3.svg", "/pic4.svg"].map((src, i) => (
-          <SwiperSlide key={i}>
+          <SwiperSlide key={i} className="swiper-Image-parent">
             <Image
-              width={200}
-              height={200}
+              fill
               src={src}
               style={{
                 width: "100%",
                 height: "100%",
                 objectFit: "cover",
-                borderRadius: "20px",
+                borderRadius: "25px",
               }}
               alt={`slide-${i}`}
             />
           </SwiperSlide>
         ))}
       </Swiper>
+        <div className="buttons">
+          <button onClick={() => swiperRef.current?.slideNext()}>next</button>
+          <button onClick={() => swiperRef.current?.slidePrev()}>prev</button>
+        </div>
     </div>
   );
 };

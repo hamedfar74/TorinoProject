@@ -1,14 +1,21 @@
 .container {
-  max-width: 100%;
+  margin: 0 auto;
+  max-width: 1440px;
+}
+.banner {
+  position: relative;
+  width: 100%;
+  height: 100px;
 }
 .banner img {
-  width: 100%;
+  /* width: 100%; */
+  object-fit: cover;
 }
 .container h1 {
   width: 100%;
   font-size: 1rem;
   text-align: center;
-  margin: 1.5rem auto;
+  margin: 1rem 0 1.5rem 0;
   color: #595959;
 }
 .subContainer {
@@ -16,4 +23,25 @@
 }
 .subContainer h1 span {
   color: var(--primary-color);
+}
+
+@media (min-width:450px) {
+  .banner{
+    height: 150px;
+  }
+}
+@media (min-width:800px) {
+  .banner{
+    height: 330px;
+  }
+  .subContainer h1 {
+    font-size: 1.75rem;
+  }
+}
+@media (min-width:1000px) {
+  .subContainer {
+    margin: 0.5rem 5rem;
+    
+  }
+  
 }

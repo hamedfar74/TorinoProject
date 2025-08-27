@@ -6,7 +6,7 @@
 }
 .imageBox {
   position: relative;
-  height: 10rem;
+  /* height: 8rem; */
   width: 100%;
   aspect-ratio: 16 / 9;
 }
@@ -20,8 +20,23 @@
 .info {
   padding: 0.5rem;
 }
-.dec {
-  
+.info h3 {
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+.desc {
+  display: flex;
+  align-items: center;
+  color: rgba(40, 40, 40, 0.7);
+  /* width: 80%; */
+  /* flex-wrap: nowrap; */
+  /* overflow-x: hidden; */
+}
+.desc p{
+  margin: 0.7rem 0;
+  /* max-width: 100%; */
+  /* text-wrap: nowrap; */
+  /* overflow-x: hidden; */
 }
 .divider {
   padding: 0;

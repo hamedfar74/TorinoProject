@@ -8,14 +8,50 @@ border-top: 1px solid #00000040;
     padding: 1.5rem 0 ;
     align-items: center;
 }
+.iconContainer {
+    position: relative;
+    width: 65px;
+    height: 65px;
+    object-fit: contain;
+}
+/* .container img {
+    object-fit: contain;
+    width: 65px;
+    height: 65px;
+} */
 .container div h4 {
-    font-size: 0.9rem ;
-
+    font-size: 1.2rem ;
+    font-weight: 500;
+    color: rgba(40, 40, 40, 1);
 }
 .container div p {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
+    font-weight: 300;
     padding-top: 1rem;
+    color: rgba(40, 40, 40, 1);
 }
 .container div span {
     margin-right: 1rem;
+}
+
+@media (min-width:800px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+        /* justify-content: center; */
+        align-items: center;
+    }
+    .container div h4 {
+        font-size: 1.5rem;
+    }
+    .iconContainer {
+        width: 100px;
+        height: 100px;
+    }
+}
+@media (min-width:1000px) {
+    .container {
+        flex-direction: row;
+        justify-content: space-around;
+    }
 }

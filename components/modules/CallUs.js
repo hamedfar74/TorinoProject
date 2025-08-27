@@ -14,15 +14,18 @@ const CallUs = () => {
             <p>به هرکجا که میخواهید!</p>
           </div>
           <div className={styles.photo}>
-            <Image width={200} height={162} src="/professional-cartoon-man-talking-phone-icon.svg" alt="cartoon-guy" />
+            <Image fill src="/professional-cartoon-man-talking-phone-icon.svg" alt="cartoon-guy" />
           </div>
           
         </div>
         <div className={styles.bottomBox}>
-          <span>
+          <div>
             {e2p("021-1840")}
-            <Image width={25} height={25} src="/icons/call.svg" alt="call" />
-          </span>
+            <span className={styles.phoneIcon}>
+            <Image fill src="/icons/call.svg" alt="call" />
+
+            </span>
+          </div>
           <button> اطلاعات بیشتر</button>
         </div>
       </div>

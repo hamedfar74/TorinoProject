@@ -44,10 +44,10 @@ const TourCard = ({ tour }) => {
       </div>
       <div className={styles.info}>
         <h3>{title}</h3>
-        <div className={styles.dec}>
-          <p>{persianMonth} ماه .</p>
+        <div className={styles.desc}>
+          <p>{persianMonth}ماه .</p>
           <p>
-            {`${e2p(day)}روزه + ${vehicle} - ${options[0]} - ${options[1]}`}
+            {`${e2p(day)}روزه - ${vehicle} - ${options[0]} - ${options[1]}`}
             {options[2] && ` - ${options[2]} `}
           </p>
         </div>

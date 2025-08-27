@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import styles from "./TourClientHandler.module.css";
 import Image from "next/image";
 const TourClientHandler = ({ children }) => {
+  
   const [isMobile, setIsMobile] = useState(false);
   const [showAll, setShowAll] = useState(false);
   useEffect(() => {
@@ -25,7 +26,7 @@ const TourClientHandler = ({ children }) => {
   if (isMobile && !showAll) {
     return (
       <>
-        {children.slice(0, 3)}
+        {children?.slice(0, 3)}
 
         <div className={styles.container} onClick={() => setShowAll(true)}>
           <p>
@@ -37,7 +38,7 @@ const TourClientHandler = ({ children }) => {
     );
   }
   return (
-    <div>
+    <div className={styles.tourContainer}>
       {children}
       {/* {isMobile && !showAll && (
         

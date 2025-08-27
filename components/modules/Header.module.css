@@ -1,6 +1,7 @@
 .container {
   /* position: relative; */
-  width: 100%;
+  margin: auto;
+  max-width: 1440px;
   height: 65px;
   align-items: center;
   display: flex;
@@ -39,7 +40,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0 , 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(3px);
   display: flex;
   justify-content: center;
@@ -50,12 +51,10 @@
   position: relative;
   /* backdrop-filter: blur(5px); */
 }
-.menu a {
- 
-}
+
 .openHam {
   margin-top: 5rem;
- 
+
   right: 0;
   top: 0;
 }
@@ -66,19 +65,87 @@
   height: 100vh;
   width: 45%;
   background-color: #fff;
-   position: fixed;
+  position: fixed;
   color: var(--text-color);
   z-index: 50;
   border-radius: 10px 0 0 10px;
-  box-shadow: 10px 0 5px 10px  #202020
+  box-shadow: 10px 0 5px 10px #202020;
 }
 .openHam li {
   margin-top: 1.5rem;
-  margin-right:  2rem;
+  margin-right: 2rem;
   list-style: none;
 }
 
 .openHam li a {
   text-decoration: none;
   color: var(--text-color);
+}
+.webDesignBt {
+  display: none;
+}
+.webDesignMenu {
+  display: none;
+}
+
+@media (min-width: 600px) {
+  .menu,
+  .openHam,
+  .firstBt,
+  .secondBt {
+    display: none;
+  }
+
+  .container {
+    justify-content: space-around;
+  }
+  .webDesignBt {
+    display: flex;
+    background-color: #fff;
+    border: 2px solid #28a745;
+    width: 40;
+    height: 40;
+    opacity: 1;
+    border-radius: 8px;
+    padding: 8px;
+    gap: 4px;
+    cursor: pointer;
+    font-family: inherit;
+    color: var(--primary-color);
+    font-weight: 500;
+    font-size: 18px;
+  }
+  .webDesignBt span {
+    text-wrap: nowrap;
+    padding: 0 0.7rem;
+  }
+  .webDesignMenu {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+  }
+  .webDesignMenu ul {
+    display: flex;
+    /* margin-right: 2rem; */
+    gap: 1.3rem;
+  }
+  .webDesignMenu li {
+    list-style: none;
+    /* padding: 0 0.8rem; */
+  }
+  .webDesignMenu li a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 400;
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 1000px) {
+  .webDesignMenu {
+    gap: 6rem;
+  }
+  .webDesignMenu li {
+    padding: 0 1.5rem;
+  }
 }
