@@ -21,7 +21,7 @@ const Homepage = () => {
         <Search />
         <Tours />
         <CallUs />
-        {/* <WhyUs /> */}
+        <WhyUs />
         <Featurs />
       </div>
       <ToastHandler />

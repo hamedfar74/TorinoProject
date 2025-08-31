@@ -1,0 +1,22 @@
+.container {
+    width: 100%;
+    padding: 0.5rem 0;
+}
+.container button {
+    background-color: #fff;
+    border: none;
+    color: var(--complementary-color);
+    font-size: 0.8rem;
+    padding: 0 1rem;
+    font-weight: 300;
+    cursor: pointer;
+}
+.container button:focus {
+    border-bottom: 1px solid var(--complementary-color);
+    
+}
+.container p {
+    font-size: 0.7rem;
+    font-weight: 300;
+    color: rgba(40, 40, 40, 1);
+}

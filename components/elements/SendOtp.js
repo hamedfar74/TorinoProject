@@ -11,11 +11,14 @@ const SendOtp = ({ setStep, mobile, setMobile, setIsopen }) => {
   const regEx = /^(09\d{9})$/gs;
 
   const { isPending, mutate } = useSendOtp();
-
+  console.log(isPending);
   const changeHandler = (event) => {
     setMobile(event.target.value);
   };
 
+  const handleWheel = (e) => {
+    e.preventDefault()
+  }
   const submitHandler = async (e) => {
     e.preventDefault();
     if (!regEx.test(mobile)) return toast.error("شماره وارد شده صحیح نمیباشد");
@@ -29,8 +32,8 @@ const SendOtp = ({ setStep, mobile, setMobile, setIsopen }) => {
           setStep(2);
         },
         onError: (err) => {
-          toast.error("مشکلی پیش آمده دوباره تلاش کنید")
-          console.log(err)
+          toast.error("مشکلی پیش آمده دوباره تلاش کنید");
+          console.log(err);
         },
       }
     );
@@ -54,6 +57,14 @@ const SendOtp = ({ setStep, mobile, setMobile, setIsopen }) => {
             }
           }}
           onChange={changeHandler}
+          onFocus={(e) => {
+            e.target.addEventListener('wheel', handleWheel, { passive: false })
+          }}
+          // onWheel={(e) => {
+            
+          //     e.preventDefault();
+            
+          // }}
         />
         <button className={`${isPending ? styles.disable : null}`}>
           ارسال کد تایید

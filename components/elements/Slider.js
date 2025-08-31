@@ -52,8 +52,8 @@ const Slider = () => {
         ))}
       </Swiper>
         <div className="buttons">
-          <button onClick={() => swiperRef.current?.slideNext()}>next</button>
-          <button onClick={() => swiperRef.current?.slidePrev()}>prev</button>
+          <button className="next-btn" onClick={() => swiperRef.current?.slideNext()}><Image fill src="/icons/arrow-left.svg" alt="arrow-right" /></button>
+          <button className="prev-btn" onClick={() => swiperRef.current?.slidePrev()}><Image fill src="/icons/arrow-left.svg" alt="arrow-left" /></button>
         </div>
     </div>
   );

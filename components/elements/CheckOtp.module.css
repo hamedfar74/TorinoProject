@@ -10,8 +10,19 @@
 .container form {
   margin: 1rem;
 }
+.container h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: rgba(40, 40, 40, 1);
+}
+.container p {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: rgba(40, 40, 40, 1);
+}
 .backButton {
   text-align: left;
+  margin-left: 0.6rem;
 }
 .backButton button {
   border: none;
@@ -28,6 +39,8 @@
 
   gap: 0.2rem;
   direction: ltr;
+  margin-bottom: 1rem;
+  -moz-appearance: textfield;
 }
 .otpinput {
   /* width: 45px;
@@ -40,6 +53,12 @@
   text-align: center;
   outline: none;
   direction: ltr;
+  -moz-appearance: textfield;
+}
+.otpinput::-webkit-inner-spin-button,
+.otpinput::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0; /* برای Chrome, Safari, Edge */
 }
 
 .otpinput:focus {
@@ -55,6 +74,8 @@
   border-radius: 6px;
   padding: 1rem;
   margin-top: 1rem;
+  font-size: 1.2rem;
+  font-weight: 500;
 }
 
 .otpinput input[type="number"]::-webkit-outer-spin-button,

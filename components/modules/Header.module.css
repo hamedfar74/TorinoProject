@@ -35,6 +35,8 @@
   opacity: 1;
 }
 .modalOverlay {
+  max-width: 1440px;
+  margin: 0 auto;
   position: fixed;
   top: 0;
   left: 0;

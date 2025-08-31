@@ -3,6 +3,7 @@ import { useAuth } from "../context/AuthProvider";
 
 import styles from "./CheckOtp.module.css";
 import Image from "next/image";
+import CountDown from "./CountDown";
 
 const CheckOtp = ({ setStep, otp, setOtp, mobile, setIsopen }) => {
   const { LoginHandler } = useAuth();
@@ -10,6 +11,9 @@ const CheckOtp = ({ setStep, otp, setOtp, mobile, setIsopen }) => {
     event.preventDefault();
     console.log(otp);
     LoginHandler({ mobile: mobile, code: otp }, () => setIsopen(false));
+  };
+  const handleWheel = (e) => {
+    e.preventDefault();
   };
   return (
     <div className={styles.container}>
@@ -36,6 +40,12 @@ const CheckOtp = ({ setStep, otp, setOtp, mobile, setIsopen }) => {
                   e.preventDefault();
                 }
               },
+              onfocus: (e) => {
+                console.log(e),
+                e.target.addEventListener("wheel", handleWheel, {
+                  passive: false,
+                });
+              },
             }}
             renderInput={(props) => (
               <input {...props} className={styles.otpinput} />
@@ -44,7 +54,7 @@ const CheckOtp = ({ setStep, otp, setOtp, mobile, setIsopen }) => {
           />
         </div>
         <div> </div>
-        {/* CountDown */}
+        <CountDown mobile={mobile} />
         <button className={styles.loginBt}>ورود به تورینو</button>
       </form>
     </div>

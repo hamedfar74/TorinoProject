@@ -13,7 +13,6 @@
   border-radius: 20px;
   right: 0;
   overflow-y: visible;
-  
 }
 .swiper {
   position: relative;
@@ -26,6 +25,9 @@
 }
 .swiper-slide {
   border-radius: 25px;
+}
+.swiper-horizontal {
+  /* width: 90%; */
 }
 .swiper-wrapper {
   margin-right: -3.5rem;
@@ -65,18 +67,62 @@
   right: 25%;
   z-index: 500;
 }
-@media (min-width: 1000px) {
-  .container {
-    height: 500px;
+
+.next-btn {
+  position: relative;
+  object-fit: contain;
+  width: 26px;
+  height: 26px;
+  rotate: 180deg;
+  background-color: #fff;
+  border: none;
+}
+.prev-btn {
+  position: relative;
+  object-fit: contain;
+  width: 26px;
+  height: 26px;
+  background-color: #fff;
+  border: none;
+}
+@media (min-width: 600px) {
+  .container-slide {
+    height: 600px;
   }
   .custom-swiper {
-    width: 500px;
-    height: 500px;
+    height: 600px;
+    width: 650px;
   }
   .swiper-Image-parent {
-    height: 450px;
+    height: 600px;
+    width: 300px;
+    margin-right: -2.5rem;
   }
-  .swiper-pagination {
-    
+  .next-btn,
+  .prev-btn {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+@media (min-width: 1100px) {
+  .container-slide {
+    height: 680px;
+    width: max-content;
+  }
+  .custom-swiper {
+    width: 650px;
+    height: 680px;
+    margin-right: -2rem;
+    /* overflow-x: auto; */
+  }
+  .swiper-Image-parent {
+    height: 650px;
+    width: 250px;
+    margin-right: -1.5rem;
+  }
+  .buttons {
+    width: 40%;
+    right: 28%;
   }
 }
