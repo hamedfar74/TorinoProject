@@ -85,6 +85,7 @@
 @media (min-width: 1000px) {
   .container {
     width: 85%;
+    max-width: 1440px;
   }
   .webDesignContainer {
     display: flex;
