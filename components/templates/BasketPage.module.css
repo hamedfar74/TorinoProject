@@ -1,37 +1,13 @@
 .container {
   margin: 1rem 2rem;
 }
-.userInfo {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  border: 1px solid #00000033;
-  border-radius: 10px;
-  padding: 0.8rem 1rem;
-}
-.userInfo h3 {
+.container h3 {
     display: flex;
     align-items: center;
     gap: 1rem;
-}
-.userInfo input,
-.userInfo select {
-  border: 1px solid #808080;
-  border-radius: 5px;
-  height: 3.1rem;
-  width: 100%;
-}
-.userInfo input:focus,
-.userInfo select:focus {
-  border: 2px solid var(--primary-color);
-  box-shadow: 0 0 0 2px #07ec39;
-  outline: none;
-}
-.userInfo input::placeholder {
-  padding-right: 1rem;
-}
-.userInfo select {
-  padding-right: 0.7rem;
+    padding: 1rem 0;
+    font-size: 1.5rem;
+    font-weight: 400;
 }
 /* .userInfo select {
     border:1px solid #808080;
@@ -51,33 +27,89 @@
 }
 .head {
     border-bottom: 1px dashed #00000080;
-    padding: 1rem;
+    padding: 1.5rem 1rem;
+}
+.head h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 .head p {
-    font-size: 0.9rem;
+    font-size: 1.1rem;
+    font-weight: 400;
     color: var(--text-color);
+    opacity: 50%;
 }
 .finalPrice {
-    padding: 1rem;
+  margin-top: 1rem;
+    padding: 1rem 1.5rem;
 }
 .finalPrice p {
+  font-size: 1rem;
+  font-weight: 400;
     color: var(--text-color);
 
 }
 .finalPrice P:last-child {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
 }
 .finalPrice span {
     color: var(--complementary-color);
     font-size: 1.5rem ;
+    font-weight: 600;
 }
 .summary button {
     width: 91%;
     margin: 1rem;
     font-size: 1.5rem;
-    padding: 0.5rem 0 ;
+    font-weight: 500;
+    padding: 1rem 0 ;
     color: #fff;
     background-color: var(--primary-color);
     border: none;
     border-radius: 10px;
+}
+
+@media (min-width:768px) {
+  .container {
+    max-width: 1440px;
+    margin: 1rem auto;
+    height: 60vh;
+  }
+  .container form {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    align-items: center;
+    gap: 1rem;
+    margin: 3rem 1.5rem;
+    
+  }
+  .head {
+    padding: 0 1rem;
+  }
+  .head h3 {
+    padding-bottom: 1.5rem;
+  }
+  .head p {
+    font-size: 1rem;
+  }
+  .summary {
+    margin-top: 0;
+  }
+  .finalPrice {
+    margin-top: 0;
+  }
+  .finalPrice span {
+    font-size: 1.7rem;
+    font-weight: 500;
+  }
+  .summary button {
+    width: 95%;
+    margin: 0.5rem;
+    font-weight: 400;
+  }
+}
+@media (min-width:1100px) {
+  .container form {
+    margin: 3rem 9rem;
+  }
 }

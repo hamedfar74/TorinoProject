@@ -1,24 +1,23 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { convertPdateToGregorian, tourDayAndNight } from "@/utils/helper";
 import { e2p, sp } from "@/utils/numbers";
 
-import DatePicker from "react-multi-date-picker";
-import persian from "react-date-object/calendars/persian";
-import persian_fa from "react-date-object/locales/persian_fa";
-
 import styles from "./BasketPage.module.css";
-import DateObject from "react-date-object";
+
 import { useSendOrder } from "@/core/services/mutations";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import Form from "../modules/Form";
+import { validate } from "@/utils/validate";
 
 const BasketPage = ({ data }) => {
   const { tour, user } = data;
   const [days, nights] = tourDayAndNight(tour.startDate, tour.endDate);
-  const [error, setError] = useState("");
+  const [error, setError] = useState({});
+  const [touch, setTouch] = useState({});
   const [info, setInfo] = useState({
     fullName:
       user?.firstName && user?.lastName
@@ -30,23 +29,34 @@ const BasketPage = ({ data }) => {
   });
   const router = useRouter();
 
+  useEffect(() => {
+    setError(validate(info));
+  }, [info, touch]);
+
+  console.log(error, info);
+  console.log(touch);
   // console.log(tour)
   // console.log(info, user);
-  
 
-  const today = new Date();
-  const maxDate = new Date(
-    today.getFullYear() - 15,
-    today.getMonth(),
-    today.getDate()
-  );
-
-  const changeHandler = (event) => {
-    setInfo({ ...info, [event.target.name]: event.target.value });
-  };
   const { mutate, isPending } = useSendOrder();
   const submitHandler = (event) => {
     event.preventDefault();
+    if (
+      !info.fullName?.length ||
+      !info.nationalCode ||
+      !info.gender ||
+      !info.birthDate
+    ) {
+      return (
+        toast.error("برای ثبت خرید نهایی ، فیلد های خالی را پر کنید"),
+        setTouch({
+          fullName: true,
+          nationalCode: true,
+          gender: true,
+          birthDate: true,
+        })
+      );
+    }
     const birthDateForSend = convertPdateToGregorian(info?.birthDate);
     const payload = {
       fullName: info.fullName.trim(),
@@ -57,12 +67,14 @@ const BasketPage = ({ data }) => {
     // if (payload) console.log("payload", payload);
     mutate(payload, {
       onSuccess: (data) => {
+        setError({});
+        setTouch({});
         console.log(data);
         toast.success(`${data?.data.message}`);
         router.replace("/");
       },
       onError: (err) => {
-        toast.error("مشکلی پیش آمده دوباره تلاش کنید")
+        toast.error("مشکلی پیش آمده دوباره تلاش کنید");
         console.log(err);
       },
     });
@@ -71,45 +83,24 @@ const BasketPage = ({ data }) => {
   return (
     <div className={styles.container}>
       <form onSubmit={submitHandler}>
-        <div className={styles.userInfo}>
-          <h3><Image width={24} height={24} src="icons/profile-black.svg" alt="profile-icon" />مشخصات مسافر</h3>
-          <input
-            type="text"
-            name="fullName"
-            value={info.fullName}
-            placeholder="نام و نام خانوادگی"
-            onChange={changeHandler}
-          />
-          <input
-            type="text"
-            name="nationalCode"
-            value={info.nationalCode}
-            placeholder="کد ملی"
-            onChange={changeHandler}
-          />
-          <select name="gender" onChange={changeHandler}>
-            <option value="" defaultValue>
-              جنسیت
-            </option>
-            <option value="male">مرد</option>
-            <option value="female">زن</option>
-          </select>
-          <DatePicker
-            value={info.birthDate}
-            placeholder="تاریخ تولد"
-            onChange={(dateObj) => {
-              setInfo((prev) => ({
-                ...prev,
-                birthDate: dateObj,
-              }));
-            }}
-            calendar={persian}
-            locale={persian_fa}
-            format="YYYY/MM/DD"
-            maxDate={maxDate}
-          />
-          {/* </form> */}
-        </div>
+        <Form
+          info={info}
+          setInfo={setInfo}
+          error={error}
+          setError={setError}
+          touch={touch}
+          setTouch={setTouch}
+        >
+          <h3>
+            <Image
+              width={24}
+              height={24}
+              src="icons/profile-black.svg"
+              alt="profile-icon"
+            />
+            مشخصات مسافر
+          </h3>
+        </Form>
         <div className={styles.summary}>
           <div className={styles.head}>
             <h3>{tour.title}</h3>
@@ -121,7 +112,9 @@ const BasketPage = ({ data }) => {
               <span>{sp(tour.price)}</span> تومان
             </p>
           </div>
-          <button onSubmit={submitHandler}>ثبت و خرید نهایی</button>
+          <button onSubmit={submitHandler} disabled={isPending}>
+            ثبت و خرید نهایی
+          </button>
         </div>
       </form>
     </div>

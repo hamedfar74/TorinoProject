@@ -1,0 +1,79 @@
+.userInfo {
+  
+  border: 1px solid #00000033;
+  border-radius: 10px;
+  padding: 0.8rem 1rem;
+  width: 100%;
+}
+.webInfo {
+   display: flex;
+  flex-direction: column;
+  
+  /* gap: 1rem; */
+}
+.fieldItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.fieldItem span {
+  height: 1rem;
+ margin: 0.5rem 0;
+}
+.userInfo span {
+    height: 1rem;
+}
+.userInfo input,
+.userInfo select {
+  border: 1px solid #808080;
+  border-radius: 5px;
+  height: 3.1rem;
+  width: 100%;
+  padding: .9rem;
+}
+.userInfo input:focus,
+.userInfo select:focus {
+  border: 2px solid var(--primary-color);
+  box-shadow: 0 0 0 2px #07ec39;
+  outline: none;
+}
+/* .userInfo input::placeholder {
+  padding-right: 1rem;
+} */
+.userInfo select {
+  padding-right: 0.7rem;
+  font-weight: 400;
+  font-size: 0.9rem;
+  color: rgba(0, 0, 0, 0.5);
+  
+}
+.dateContainer {
+    max-width: 100%;
+    /* object-fit: contain; */
+}
+.error {
+    margin-top: -2rem;
+    height: 0.9rem;
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: red;
+    padding-right: 0.9rem;
+}
+
+@media (min-width:768px) {
+  .webInfo {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.9rem;
+  }
+  .userInfo {
+    height: 100%;
+  }
+  .fieldItem span {
+    margin-bottom: -0.5rem;
+  }
+  .fieldItem:last-child span {
+    /* margin-bottom: 0.5rem; */
+    width: 110%;
+  }
+}
