@@ -1,0 +1,114 @@
+.contactInfo {
+  border: 1px solid #00000033;
+  border-radius: 10px;
+  padding: 1rem 1rem 0;
+}
+.contactInfo h3 {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.mobile {
+  display: flex;
+  justify-content: space-between;
+  margin: 1.5rem 0;
+}
+.mobile p {
+  font-size: 0.8rem;
+  font-weight: 300;
+}
+.mobile span {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--text-color);
+}
+
+.email span {
+  height: 1rem;
+  display: inline-block;
+}
+.emailInput {
+  display: flex;
+  gap: 0.5rem;
+  /* margin-bottom: 1.3rem; */
+}
+.emailInput input {
+  border: 1px solid #808080;
+  border-radius: 5px;
+  height: 2.5rem;
+  width: 100%;
+  padding: 0.9rem;
+}
+.emailbutton {
+  padding: 0.5rem 2rem;
+  background-color: var(--primary-color);
+  color: #fff;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin-left: 0.8rem;
+}
+.emailDetails {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+.emailDetails span {
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+.emailDetails p {
+  font-size: 0.8rem;
+  font-weight: 300;
+}
+.error {
+  margin-top: -2rem;
+  height: 0.9rem;
+  font-size: 0.8rem;
+  font-weight: 300;
+  color: red;
+  padding-right: 0.9rem;
+}
+.addbtn {
+  color: var(--complementary-color);
+  background-color: #fff;
+}
+
+@media (min-width: 900px) {
+  .webDesign {
+    display: flex;
+    align-items: center;
+    margin: 1.7rem 1.5rem;
+    justify-content: space-between;
+  }
+  .mobile,
+  .emailDetails,
+  .email {
+    margin: 0;
+  }
+  .email {
+    margin-bottom: -1.5rem;
+  }
+  .mobile span {
+    margin: 0 1.5rem;
+  }
+  .emailDetails span {
+    margin: 0 4.5rem;
+  }
+  .contactInfo h3 {
+    font-size: 1.1rem;
+    font-weight: 400;
+  }
+  /* .webDesign p {
+    font-size: 0.8rem;
+    font-weight: 300;
+  } */
+  .emailInput {
+    width: 116%;
+    padding-left: 2.8rem;
+  }
+  .emailbutton {
+    padding: 0.5rem 3rem;
+  }
+}

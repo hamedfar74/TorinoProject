@@ -2,6 +2,7 @@
 
 import {
   convertCity,
+  converteDateToFa,
   convertVehicle,
   DateWithPMonth,
   tourDayAndNight,
@@ -58,6 +59,7 @@ const MyToursCard = ({ tour }) => {
     diff();
   }, [endDate]);
 
+ 
   const beginIn = DateWithPMonth(startDate);
   const endsIn = DateWithPMonth(endDate);
 
@@ -65,7 +67,7 @@ const MyToursCard = ({ tour }) => {
     <div className={styles.container}>
       <div className={styles.head}>
         <p>
-          <Image width={18} height={18} src="icons/sun-fog.svg" alt="icon" />
+          <Image width={18} height={18} src="/icons/sun-fog.svg" alt="icon" />
           {title}
         </p>
         <p>سفر با {convertVehicle(fleetVehicle)}</p>

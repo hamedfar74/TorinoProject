@@ -1,5 +1,9 @@
-.container {
-    width: 100%;
+/* .container {
+    max-width: 1440px;
+    margin: 0 auto;
+} */
+.profileTab {
+    margin: 0 2rem;
 }
 .buttons {
     /* text-align: center; */
@@ -30,4 +34,9 @@
 }
 .tabs {
     max-width: 100%;
+}
+@media (min-width:900px) {
+    .container {
+        margin: 0;
+    }
 }

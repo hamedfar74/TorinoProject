@@ -11,7 +11,7 @@ const SendOtp = ({ setStep, mobile, setMobile, setIsopen }) => {
   const regEx = /^(09\d{9})$/gs;
 
   const { isPending, mutate } = useSendOtp();
-  console.log(isPending);
+  // console.log(isPending);
   const changeHandler = (event) => {
     setMobile(event.target.value);
   };

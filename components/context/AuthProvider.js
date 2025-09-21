@@ -1,8 +1,8 @@
 "use client";
-import api from "@/core/configs/api";
+
 import { useCheckOtp } from "@/core/services/mutations";
 import { getCookie, setCookie } from "@/utils/cookie";
-import { useMutation } from "@tanstack/react-query";
+
 import { useRouter } from "next/navigation";
 import { createContext, useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
@@ -23,7 +23,7 @@ const AuthProvider = ({ children }) => {
 
   const router = useRouter();
   // console.log({ user, token, mobile });
-  
+
   const { isPending, mutate } = useCheckOtp();
   const LoginHandler = (userData, after) => {
     mutate(userData, {

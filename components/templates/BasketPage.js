@@ -20,8 +20,8 @@ const BasketPage = ({ data }) => {
   const [touch, setTouch] = useState({});
   const [info, setInfo] = useState({
     fullName:
-      user?.firstName && user?.lastName
-        ? `${user?.firstName} ${user?.lastName}`
+      user?.fullName
+        ? `${user?.fullName.split(" ")[0]} ${user?.fullName.split(" ")[1]}`
         : "",
     nationalCode: user?.nationalCode ? user.nationalCode : "",
     gender: user?.gender ? user?.gender : "",
@@ -37,6 +37,7 @@ const BasketPage = ({ data }) => {
   console.log(touch);
   // console.log(tour)
   // console.log(info, user);
+  console.log(user)
 
   const { mutate, isPending } = useSendOrder();
   const submitHandler = (event) => {
@@ -83,24 +84,26 @@ const BasketPage = ({ data }) => {
   return (
     <div className={styles.container}>
       <form onSubmit={submitHandler}>
-        <Form
-          info={info}
-          setInfo={setInfo}
-          error={error}
-          setError={setError}
-          touch={touch}
-          setTouch={setTouch}
-        >
-          <h3>
-            <Image
-              width={24}
-              height={24}
-              src="icons/profile-black.svg"
-              alt="profile-icon"
-            />
-            مشخصات مسافر
-          </h3>
-        </Form>
+        <div className={styles.formContainer}>
+          <Form
+            info={info}
+            setInfo={setInfo}
+            error={error}
+            setError={setError}
+            touch={touch}
+            setTouch={setTouch}
+          >
+            <h3>
+              <Image
+                width={24}
+                height={24}
+                src="icons/profile-black.svg"
+                alt="profile-icon"
+              />
+              مشخصات مسافر
+            </h3>
+          </Form>
+        </div>
         <div className={styles.summary}>
           <div className={styles.head}>
             <h3>{tour.title}</h3>

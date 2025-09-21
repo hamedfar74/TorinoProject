@@ -20,6 +20,7 @@ const Form = ({ info, setInfo, error, touch, setTouch, children }) => {
       setTouch({ ...touch, [e.target.name]: true });
     }
   };
+  // console.log(info)
 
   return (
     <div className={styles.userInfo}>
@@ -29,7 +30,7 @@ const Form = ({ info, setInfo, error, touch, setTouch, children }) => {
           <input
             type="text"
             name="fullName"
-            value={info.fullName}
+            value={info?.fullName}
             placeholder="نام و نام خانوادگی"
             onChange={changeHandler}
             onFocus={focusHandler}
@@ -44,7 +45,7 @@ const Form = ({ info, setInfo, error, touch, setTouch, children }) => {
           <input
             type="text"
             name="nationalCode"
-            value={info.nationalCode}
+            value={info?.nationalCode}
             placeholder="کد ملی"
             onChange={changeHandler}
             onFocus={focusHandler}
@@ -56,7 +57,7 @@ const Form = ({ info, setInfo, error, touch, setTouch, children }) => {
           </span>
         </div>
         <div className={styles.fieldItem}>
-          <select name="gender" onChange={changeHandler} onFocus={focusHandler}>
+          <select name="gender" onChange={changeHandler} onFocus={focusHandler} value={info?.gender}>
             <option value="" defaultValue>
               جنسیت
             </option>
@@ -78,7 +79,7 @@ const Form = ({ info, setInfo, error, touch, setTouch, children }) => {
           >
             <DatePicker
               placeholder="تاریخ تولد"
-              value={info.birthDate}
+              value={info?.birthDate}
               onChange={(dateObj) => {
                 setInfo((prev) => ({
                   ...prev,

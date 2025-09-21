@@ -8,9 +8,9 @@ const ToursTab = () => {
   // console.log(data?.data);
 
   return (
-    <div>
+    <div className={styles.container}>
       {isPending ? (
-        <p>Loanig ...</p>
+        <p>Loading ...</p>
       ) : (
         <>
           {data?.data?.map((tour, index) => (

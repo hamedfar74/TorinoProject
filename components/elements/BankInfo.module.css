@@ -1,0 +1,143 @@
+
+.bankInfo {
+  border: 1px solid #00000033;
+  border-radius: 10px;
+  padding: 1rem 1rem 0;
+}
+.bankForm h3 {
+  font-size: 1rem;
+  font-weight: 400;
+  padding-right: 1rem;
+}
+.bankInputs {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.bankInputItems {
+  display: flex;
+  flex-direction: column;
+}
+.bankInputItems span {
+  height: 1rem;
+}
+.error {
+   margin-top: -2rem;
+    height: 0.9rem;
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: red;
+    padding-right: 0.9rem;
+}
+.bankForm div input {
+  /* border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 5px; */
+  border: 1px solid #808080;
+  border-radius: 5px;
+  height: 3.1rem;
+  width: 100%;
+  padding: 0.9rem;
+}
+.bankDescription {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+.bankDescription div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.head {
+  margin: 1rem 0;
+   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.head h3 {
+  font-size: 1rem;
+  font-weight: 400;
+}
+.head button {
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+.bankDetails div p {
+  font-size: 0.8rem;
+  font-weight: 300;
+}
+.bankDetails div span {
+  font-size: 0.9rem;
+  min-width: 10rem;
+  text-align: center;
+  font-weight: 400;
+  color: var(--text-color);
+}
+.addbtn {
+  color: var(--complementary-color);
+  background-color: #fff;
+}
+.personalDbt {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 1.5rem;
+  height: 100%;
+  gap: 0.7rem;
+  padding: 0 1rem;
+}
+.personalDbt button {
+  padding: 0.7rem 2rem;
+  width: 50%;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 8px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+.personalDbt button:first-child {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+.personalDbt button:last-child {
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+  background-color: #fff;
+}
+
+@media (min-width:900px) {
+  .head {
+    margin: 0;
+    margin-bottom: 1.7rem;
+  }
+ .head h3 {
+    font-size: 1.1rem;
+    font-weight: 400;
+  }
+  .head button {
+    font-size: 0.85rem;
+    font-weight: 400;
+  }
+  .bankDescription {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+  .bankDescription div span {
+    font-size: 1rem;
+  }
+  .personalDbt {
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+    justify-content: flex-end;
+    margin-bottom: 0.5rem;
+    padding-top: 0.5rem;
+  }
+  .personalDbt button {
+    width: 15%;
+
+  }
+}
